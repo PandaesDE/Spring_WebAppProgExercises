@@ -1,10 +1,10 @@
-package com.SpringJavaExercises;
+package com.Spring.Test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringJavaExercisesAppTests {
+class Spring_WebAppProgExercisesAppTests {
 
 	@Test
 	void contextLoads() {

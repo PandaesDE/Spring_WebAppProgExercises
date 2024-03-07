@@ -1,4 +1,4 @@
-package com.SpringJavaExercises;
+package com.Spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-public class SpringJavaExercisesApp {
+public class Spring_WebAppProgExercisesApp {
 
 	public interface ISaySomethingService {
 		public String saySomething();
@@ -22,7 +22,7 @@ public class SpringJavaExercisesApp {
 	}
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringJavaExercisesApp.class, args);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(Spring_WebAppProgExercisesApp.class, args);
 		ISaySomethingService sss = applicationContext.getBean(ISaySomethingService.class);
 		System.out.println(sss.saySomething());
 	}
