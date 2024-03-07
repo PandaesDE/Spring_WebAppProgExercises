@@ -1,10 +1,10 @@
-package com.example.AdventOfCodeBackend;
+package com.SpringJavaExercises;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AdventOfCodeBackendApplicationTests {
+class SpringJavaExercisesAppTests {
 
 	@Test
 	void contextLoads() {

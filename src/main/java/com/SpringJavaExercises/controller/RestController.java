@@ -1,4 +1,4 @@
-package com.example.AdventOfCodeBackend.controller;
+package com.SpringJavaExercises.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 

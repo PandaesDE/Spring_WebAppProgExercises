@@ -1,13 +1,12 @@
-package com.example.AdventOfCodeBackend;
+package com.SpringJavaExercises;
 
-import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-public class AdventOfCodeBackendApplication {
+public class SpringJavaExercisesApp {
 
 	public interface ISaySomethingService {
 		public String saySomething();
@@ -23,7 +22,7 @@ public class AdventOfCodeBackendApplication {
 	}
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(AdventOfCodeBackendApplication.class, args);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringJavaExercisesApp.class, args);
 		ISaySomethingService sss = applicationContext.getBean(ISaySomethingService.class);
 		System.out.println(sss.saySomething());
 	}
