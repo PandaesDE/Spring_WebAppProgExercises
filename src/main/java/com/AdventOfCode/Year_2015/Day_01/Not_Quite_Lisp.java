@@ -1,40 +1,36 @@
 package com.AdventOfCode.Year_2015.Day_01;
 
+import com.AdventOfCode.AOC;
 import com.AdventOfCode.Conveniencer;
 
-public class Not_Quite_Lisp {
+public class Not_Quite_Lisp extends AOC {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 1);
-        // Exercise 1
-        System.out.println(parenthesisCount(input));
-        // Exercise 2
-        System.out.println(parenthesisIndexForFirstNegativeFloor(input));
-
+    public Not_Quite_Lisp(String input) {
+        super(input);
     }
 
-    private static int parenthesisIndexForFirstNegativeFloor(String p) {
+    public String Answer2() {
         int par = 0;
-        for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '(')
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '(')
                 par++;
-            if (p.charAt(i) == ')')
+            if (input.charAt(i) == ')')
                 par--;
             if (par == -1)
-                return i + 1;
+                return "" + (i + 1);
         }
-        return par;
+        return "" + par;
     }
 
-    private static int parenthesisCount(String p) {
+    public String Answer1() {
         int par = 0;
-        for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '(')
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '(')
                 par++;
-            if (p.charAt(i) == ')')
+            if (input.charAt(i) == ')')
                 par--;
         }
-        return par;
+        return "" + par;
     }
 
 }

@@ -1,8 +1,8 @@
 package com.AdventOfCode.Year_2016.Day_01;
 
 public class Pair {
-    private int x = 0;
-    private int y = 0;
+    private int x;
+    private int y;
 
     public Pair(int x, int y) {
         this.x = x;
