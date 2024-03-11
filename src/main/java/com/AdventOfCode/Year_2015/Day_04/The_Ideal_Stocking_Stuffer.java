@@ -1,18 +1,20 @@
 package com.AdventOfCode.Year_2015.Day_04;
 
+import com.AdventOfCode.AOC;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class The_Ideal_Stocking_Stuffer {
+public class The_Ideal_Stocking_Stuffer extends AOC {
 
-    public static void main(String[] args) {
-        String input = "ckczppom";
-        // Exercise 1
-        System.out.println(getLowestNumberToGetXZeroMD5Hash(input, 5));
-        // Exercise 2
-        System.out.println(getLowestNumberToGetXZeroMD5Hash(input, 6));
+    public String answer1() {
+        return "" + getLowestNumberToGetXZeroMD5Hash(input, 5);
+    }
+
+    public String answer2() {
+        return "" + getLowestNumberToGetXZeroMD5Hash(input, 6);
     }
 
     private static int getLowestNumberToGetXZeroMD5Hash(String input, int zeros) {

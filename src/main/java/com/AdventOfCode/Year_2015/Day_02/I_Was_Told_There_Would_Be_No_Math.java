@@ -2,16 +2,17 @@ package com.AdventOfCode.Year_2015.Day_02;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOC;
 import com.AdventOfCode.Conveniencer;
 
-public class I_Was_Told_There_Would_Be_No_Math {
+public class I_Was_Told_There_Would_Be_No_Math extends AOC {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 2);
-        // Exercise 1
-        System.out.println(getTotalDimension(Conveniencer.convertTextToLines(input)));
-        // Exercise 2
-        System.out.println(getTotalRibonLength(Conveniencer.convertTextToLines(input)));
+    public String answer1() {
+        return "" + getTotalDimension(Conveniencer.convertTextToLines(input));
+    }
+
+    public String answer2() {
+        return "" + getTotalRibonLength(Conveniencer.convertTextToLines(input));
     }
 
     private static int getTotalRibonLength(ArrayList<String> input) {

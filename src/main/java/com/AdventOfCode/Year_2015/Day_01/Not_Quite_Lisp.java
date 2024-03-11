@@ -5,11 +5,7 @@ import com.AdventOfCode.Conveniencer;
 
 public class Not_Quite_Lisp extends AOC {
 
-    public Not_Quite_Lisp(String input) {
-        super(input);
-    }
-
-    public String Answer2() {
+    public String answer2() {
         int par = 0;
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '(')
@@ -22,7 +18,7 @@ public class Not_Quite_Lisp extends AOC {
         return "" + par;
     }
 
-    public String Answer1() {
+    public String answer1() {
         int par = 0;
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '(')

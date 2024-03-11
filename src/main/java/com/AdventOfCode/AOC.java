@@ -1,12 +1,11 @@
 package com.AdventOfCode;
 
 public abstract class AOC {
-    protected final String input;
+    protected String input = "no input set";
 
-    public AOC(String input) {
+    public void setInput(String input) {
         this.input = input;
     }
-
-    public abstract String Answer1();
-    public abstract String Answer2();
+    public abstract String answer1();
+    public abstract String answer2();
 }

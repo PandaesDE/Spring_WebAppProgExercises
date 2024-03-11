@@ -2,16 +2,17 @@ package com.AdventOfCode.Year_2015.Day_03;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOC;
 import com.AdventOfCode.Conveniencer;
 
-public class Perfectly_Spherical_Houses_in_a_Vacuum {
+public class Perfectly_Spherical_Houses_in_a_Vacuum extends AOC {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 3);
-        // Exercise 1
-        System.out.println(getTotalHouseAmount(input));
-        // Exercise 2
-        System.out.println(getTotalHouseAmountWithRoboSanta(input));
+    public String answer1() {
+        return "" + getTotalHouseAmount(input);
+    }
+
+    public String answer2() {
+        return "" + getTotalHouseAmountWithRoboSanta(input);
     }
 
     private static int getTotalHouseAmountWithRoboSanta(String instructions) {
