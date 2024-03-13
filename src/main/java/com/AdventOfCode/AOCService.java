@@ -16,7 +16,7 @@ public class AOCService {
         put("20154", new The_Ideal_Stocking_Stuffer());
     }};
 
-    public String getAnswers(int year, int day) {
+    public String getAnswer(int year, int day) {
         String key = "" + year + day;
         if (!AOCLogicMap.containsKey(key)) {
             return "this exercise has not been done yet";
@@ -24,6 +24,5 @@ public class AOCService {
         AOC req = AOCLogicMap.get(key);
         return "a1: " + req.answer1() + " | a2: " + req.answer2();
     }
-
 
 }
