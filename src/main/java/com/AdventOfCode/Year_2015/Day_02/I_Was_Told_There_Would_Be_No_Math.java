@@ -2,10 +2,10 @@ package com.AdventOfCode.Year_2015.Day_02;
 
 import java.util.ArrayList;
 
-import com.AdventOfCode.AOC;
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class I_Was_Told_There_Would_Be_No_Math extends AOC {
+public class I_Was_Told_There_Would_Be_No_Math extends AOCExercise {
 
     public String answer1() {
         return "" + getTotalDimension(Conveniencer.convertTextToLines(input));

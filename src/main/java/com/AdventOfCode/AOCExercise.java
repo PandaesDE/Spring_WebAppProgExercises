@@ -1,6 +1,6 @@
 package com.AdventOfCode;
 
-public abstract class AOC {
+public abstract class AOCExercise {
     protected String input = "no input set";
 
     public void setInput(String input) {

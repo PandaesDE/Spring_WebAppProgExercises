@@ -27,10 +27,10 @@ public class FileReadingService {
             return content.toString();
         }
         catch (FileNotFoundException e) {
-            return "File not Found for path: " + filePath;
+            return "File not Found";
         }
         catch (IOException e) {
-            return "IOException for path: " + filePath;
+            return "IOException";
         }
     }
 }

@@ -1,12 +1,10 @@
 package com.Spring.controller;
 
-import com.AdventOfCode.AOCService;
+import com.Spring.service.AOCService;
 import com.Spring.service.FileReadingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.io.IOException;
 
 
 @RequestMapping("/api/aoc/")

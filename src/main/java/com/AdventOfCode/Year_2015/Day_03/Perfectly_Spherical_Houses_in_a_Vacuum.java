@@ -2,10 +2,9 @@ package com.AdventOfCode.Year_2015.Day_03;
 
 import java.util.ArrayList;
 
-import com.AdventOfCode.AOC;
-import com.AdventOfCode.Conveniencer;
+import com.AdventOfCode.AOCExercise;
 
-public class Perfectly_Spherical_Houses_in_a_Vacuum extends AOC {
+public class Perfectly_Spherical_Houses_in_a_Vacuum extends AOCExercise {
 
     public String answer1() {
         return "" + getTotalHouseAmount(input);

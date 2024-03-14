@@ -1,13 +1,13 @@
 package com.AdventOfCode.Year_2015.Day_04;
 
-import com.AdventOfCode.AOC;
+import com.AdventOfCode.AOCExercise;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class The_Ideal_Stocking_Stuffer extends AOC {
+public class The_Ideal_Stocking_Stuffer extends AOCExercise {
 
     public String answer1() {
         return "" + getLowestNumberToGetXZeroMD5Hash(input, 5);

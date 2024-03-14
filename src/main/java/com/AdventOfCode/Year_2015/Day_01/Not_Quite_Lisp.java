@@ -1,9 +1,8 @@
 package com.AdventOfCode.Year_2015.Day_01;
 
-import com.AdventOfCode.AOC;
-import com.AdventOfCode.Conveniencer;
+import com.AdventOfCode.AOCExercise;
 
-public class Not_Quite_Lisp extends AOC {
+public class Not_Quite_Lisp extends AOCExercise {
 
     public String answer2() {
         int par = 0;

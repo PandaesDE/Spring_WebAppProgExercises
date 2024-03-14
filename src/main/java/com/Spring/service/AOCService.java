@@ -1,5 +1,6 @@
-package com.AdventOfCode;
+package com.Spring.service;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Year_2015.Day_01.Not_Quite_Lisp;
 import com.AdventOfCode.Year_2015.Day_02.I_Was_Told_There_Would_Be_No_Math;
 import com.AdventOfCode.Year_2015.Day_03.Perfectly_Spherical_Houses_in_a_Vacuum;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 
 public class AOCService {
 
-    private final HashMap<String, AOC> AOCLogicMap = new HashMap<String, AOC>() {{
+    private final HashMap<String, AOCExercise> AOCLogicMap = new HashMap<String, AOCExercise>() {{
         put("20151", new Not_Quite_Lisp());
         put("20152", new I_Was_Told_There_Would_Be_No_Math());
         put("20153", new Perfectly_Spherical_Houses_in_a_Vacuum());
@@ -21,7 +22,7 @@ public class AOCService {
         if (!AOCLogicMap.containsKey(key)) {
             return "this exercise has not been done yet";
         }
-        AOC req = AOCLogicMap.get(key);
+        AOCExercise req = AOCLogicMap.get(key);
         return "a1: " + req.answer1() + " | a2: " + req.answer2();
     }
 
