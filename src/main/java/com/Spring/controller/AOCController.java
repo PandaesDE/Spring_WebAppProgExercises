@@ -31,7 +31,6 @@ public class AOCController {
         if (day < 10 ) dayS = "0" + day;
 
         String path = "AdventOfCode/Year_" + year + "/Day_" + dayS + "/Not_Quite_Lisp.java";
-        System.out.println(frService.readFileContent(path));
         return frService.readFileContent(path);
     }
 

@@ -20,7 +20,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.3'
-
+	// https://docs.jboss.org/hibernate/orm/6.4/quickstart/html_single/
+	implementation "org.hibernate.orm:hibernate-core:6.4.4.Final"
 }
 
 tasks.named('test') {
