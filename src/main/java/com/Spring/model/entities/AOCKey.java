@@ -1,4 +1,4 @@
-package com.Spring.data.entities;
+package com.Spring.model.entities;
 
 import jakarta.persistence.Embeddable;
 

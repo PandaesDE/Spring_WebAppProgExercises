@@ -1,4 +1,4 @@
-package com.Spring.service;
+package com.Spring.services;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Year_2015.Day_01.Not_Quite_Lisp;

@@ -1,7 +1,7 @@
 package com.Spring.controller;
 
-import com.Spring.service.AOCService;
-import com.Spring.service.FileReadingService;
+import com.Spring.services.AOCService;
+import com.Spring.services.FileReadingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
