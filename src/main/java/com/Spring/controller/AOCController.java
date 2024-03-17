@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @org.springframework.web.bind.annotation.RestController
 public class AOCController {
 
-    private final AOCService aocService = new AOCService();
+    private final AOCService aocService;
     private final FileReadingService frService = new FileReadingService();
+
+    public AOCController(AOCService service) {
+        this.aocService = service; //TODO: Research is this autowiring?
+    }
 
     @GetMapping("/{year}/{day}")
     public String getAOCAnswers

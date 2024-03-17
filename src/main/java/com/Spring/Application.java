@@ -6,7 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-public class Spring_WebAppProgExercisesApp {
+public class Application {
 
 	public interface ISaySomethingService {
 		public String saySomething();
@@ -22,7 +22,7 @@ public class Spring_WebAppProgExercisesApp {
 	}
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(Spring_WebAppProgExercisesApp.class, args);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
 		ISaySomethingService sss = applicationContext.getBean(ISaySomethingService.class);
 		System.out.println(sss.saySomething());
 	}
