@@ -2,17 +2,19 @@ package com.AdventOfCode.Year_2016.Day_03;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Squares_With_Three_Sides {
+public class Squares_With_Three_Sides extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2016, 3);
-        // Exercise 1
-        System.out.println(getTriangleAmount(input));
-        // Exercise 2
-        System.out.println(getVerticalTriangleAmount(input));
+    @Override
+    public String answer1() {
+        return "" + getTriangleAmount(input);
+    }
 
+    @Override
+    public String answer2() {
+        return "" + getVerticalTriangleAmount(input);
     }
 
     private static int getVerticalTriangleAmount(String input) {

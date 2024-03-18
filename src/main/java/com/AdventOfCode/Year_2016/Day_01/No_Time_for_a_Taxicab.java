@@ -2,25 +2,29 @@ package com.AdventOfCode.Year_2016.Day_01;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class No_Time_for_a_Taxicab {
+public class No_Time_for_a_Taxicab extends AOCExercise {
     private static int X_POSITION = 0;
     private static int Y_POSITION = 0;
     private static char DIRECTION = 'N';
     private static ArrayList<Pair> VISITED_LOCATIONS = new ArrayList<Pair>();
     private static boolean NOT_EQUAL_PAIR = true;
+    private ArrayList<String> instructions = storeInput(trimInput(input));
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2016, 1);
-        ArrayList<String> instructions = storeInput(trimInput(input));
-        // Exercise 1
+    @Override
+    public String answer1() {
+        setDefaultValuesToVariables();
         calculateXAndYPosition(instructions);
-        System.out.println(getShortestGridPath(X_POSITION, Y_POSITION));
-        // Exercise 2 (111)
+        return "" + getShortestGridPath(X_POSITION, Y_POSITION);
+    }
+
+    @Override
+    public String answer2() {
         setDefaultValuesToVariables();
         followInstructions(instructions);
-        System.out.println(getShortestGridPath(X_POSITION, Y_POSITION));
+        return "" + getShortestGridPath(X_POSITION, Y_POSITION);
     }
 
     private static void followInstructions(ArrayList<String> instructions) {
@@ -184,5 +188,4 @@ public class No_Time_for_a_Taxicab {
     private static int getShortestGridPath(int x, int y) {
         return Math.abs(x) + Math.abs(y);
     }
-
 }

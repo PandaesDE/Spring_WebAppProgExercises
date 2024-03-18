@@ -1,17 +1,22 @@
 package com.AdventOfCode.Year_2016.Day_05;
 
+import com.AdventOfCode.AOCExercise;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class How_About_a_Nice_Game_of_Chess {
-    public static void main(String[] args) {
-        String input = "uqwqemis";
-        // Exercise 1
-        System.out.println(getXCharPasswordByXZeroHashes(input, 5, 8));
-        // Exercise 2
-        System.out.println(getNewXCharPasswordByXZeroHashes(input, 5, 8));
+public class How_About_a_Nice_Game_of_Chess extends AOCExercise {
+
+    @Override
+    public String answer1() {
+        return getXCharPasswordByXZeroHashes(input, 5, 8);
+    }
+
+    @Override
+    public String answer2() {
+        return getNewXCharPasswordByXZeroHashes(input, 5, 8);
     }
 
     private static String getNewXCharPasswordByXZeroHashes(String input, int zeros, int passwordLength) {

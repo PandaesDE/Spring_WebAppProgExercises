@@ -8,7 +8,6 @@ public class AOCEntity {
     @EmbeddedId
     private AOCKey key;
     private String name;
-    private String path;
-
+    private String input;
 }
 

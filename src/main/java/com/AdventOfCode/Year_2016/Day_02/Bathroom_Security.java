@@ -2,17 +2,19 @@ package com.AdventOfCode.Year_2016.Day_02;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Bathroom_Security {
+public class Bathroom_Security extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2016, 2);
-        // Exercise 1
-        System.out.println(getCode(input));
-        // Exercise 2
-        System.out.println(getNewCode(input));
+    @Override
+    public String answer1() {
+        return getCode(input);
+    }
 
+    @Override
+    public String answer2() {
+        return getNewCode(input);
     }
 
     private static String getNewCode(String instructions) {
@@ -95,5 +97,4 @@ public class Bathroom_Security {
         }
         return dial[dialRight][dialDown];
     }
-
 }

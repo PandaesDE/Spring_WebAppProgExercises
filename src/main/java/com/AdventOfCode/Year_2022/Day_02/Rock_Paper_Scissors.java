@@ -2,17 +2,21 @@ package com.AdventOfCode.Year_2022.Day_02;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Rock_Paper_Scissors {
+public class Rock_Paper_Scissors extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2022, 2);
-        ArrayList<String> rounds = Conveniencer.convertTextToLines(input);
-        // 1
-        System.out.println(calculateScoreByGuide(rounds));
-        // 2
-        System.out.println(calculateScoreByTrueGuide(rounds));
+    private ArrayList<String> rounds = Conveniencer.convertTextToLines(input);
+
+    @Override
+    public String answer1() {
+        return "" + calculateScoreByGuide(rounds);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + calculateScoreByTrueGuide(rounds);
     }
 
     private static int calculateScoreByGuide(ArrayList<String> rounds) {

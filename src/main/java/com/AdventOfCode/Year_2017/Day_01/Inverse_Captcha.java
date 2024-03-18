@@ -1,16 +1,18 @@
 package com.AdventOfCode.Year_2017.Day_01;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Inverse_Captcha {
+public class Inverse_Captcha extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2017, 1);
-        // Exercise 1
-        System.out.println(getCaptchaAtNextIndex(input));
-        // Exercise 2
-        System.out.println(getCaptchaAtHalfwayCircle(input));
+    @Override
+    public String answer1() {
+        return "" + getCaptchaAtNextIndex(input);
+    }
 
+    @Override
+    public String answer2() {
+        return "" + getCaptchaAtHalfwayCircle(input);
     }
 
     private static int getCaptchaAtHalfwayCircle(String input) {

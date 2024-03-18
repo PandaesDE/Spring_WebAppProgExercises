@@ -2,17 +2,21 @@ package com.AdventOfCode.Year_2022.Day_04;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Camp_Cleanup {
+public class Camp_Cleanup extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2022, 4);
-        ArrayList<String> pairs = Conveniencer.convertTextToLines(input);
-        // 1
-        System.out.println(getAmountOfFullyContainedPairs(pairs));
-        // 2
-        System.out.println(getAmountOfOverlappingPairs(pairs));
+    ArrayList<String> pairs = Conveniencer.convertTextToLines(input);
+
+    @Override
+    public String answer1() {
+        return "" + getAmountOfFullyContainedPairs(pairs);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + getAmountOfOverlappingPairs(pairs);
     }
 
     private static int getAmountOfOverlappingPairs(ArrayList<String> pairs) {
@@ -94,5 +98,4 @@ public class Camp_Cleanup {
             return false;
 
     }
-
 }

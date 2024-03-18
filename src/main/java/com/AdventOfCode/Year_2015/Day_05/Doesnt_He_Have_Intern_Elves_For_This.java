@@ -2,16 +2,19 @@ package com.AdventOfCode.Year_2015.Day_05;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Doesnt_He_Have_Intern_Elves_For_This {
+public class Doesnt_He_Have_Intern_Elves_For_This extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 5);
-        // Exercise 1
-        System.out.println(countNiceStrings(input));
-        // Exercise 2
-        System.out.println(countNiceStringsWithNewRules(input));
+    @Override
+    public String answer1() {
+        return "" + countNiceStrings(input);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + countNiceStringsWithNewRules(input);
     }
 
     private static int countNiceStringsWithNewRules(String input) {
@@ -93,5 +96,4 @@ public class Doesnt_He_Have_Intern_Elves_For_This {
         }
         return false;
     }
-
 }

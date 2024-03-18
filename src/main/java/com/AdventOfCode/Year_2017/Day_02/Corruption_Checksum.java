@@ -3,17 +3,19 @@ package com.AdventOfCode.Year_2017.Day_02;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Corruption_Checksum {
+public class Corruption_Checksum extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2017, 2);
-        // Exercise 1
-        System.out.println(getChecksumOfHighestAndLowest(input));
-        // Exercise 2
-        System.out.println(getChecksumOfDivisor(input));
+    @Override
+    public String answer1() {
+        return "" + getChecksumOfHighestAndLowest(input);
+    }
 
+    @Override
+    public String answer2() {
+        return "" + getChecksumOfDivisor(input);
     }
 
     private static int getChecksumOfDivisor(String input) {
@@ -26,13 +28,13 @@ public class Corruption_Checksum {
             int highDivisor = 0;
             int lowDivisor = 0;
             // for every index
-            for (int itterator : intArr) {
+            for (int iterator : intArr) {
                 // for every index
                 for (int j : intArr) {
-                    if (j != itterator)
-                        if (j % itterator == 0) {
+                    if (j != iterator)
+                        if (j % iterator == 0) {
                             highDivisor = j;
-                            lowDivisor = itterator;
+                            lowDivisor = iterator;
                             break;
                         }
 
@@ -50,11 +52,11 @@ public class Corruption_Checksum {
             ArrayList<Integer> intArr = lineToIntArray(lines[i]);
             int localHightest = 0;
             int localLowest = intArr.get(0);
-            for (int itterator : intArr) {
-                if (localHightest < itterator)
-                    localHightest = itterator;
-                if (localLowest > itterator)
-                    localLowest = itterator;
+            for (int iterator : intArr) {
+                if (localHightest < iterator)
+                    localHightest = iterator;
+                if (localLowest > iterator)
+                    localLowest = iterator;
             }
             checkSum += localHightest - localLowest;
         }
@@ -117,5 +119,4 @@ public class Corruption_Checksum {
         }
         return lineCount;
     }
-
 }

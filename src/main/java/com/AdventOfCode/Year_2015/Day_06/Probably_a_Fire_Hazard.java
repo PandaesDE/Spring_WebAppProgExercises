@@ -2,23 +2,29 @@ package com.AdventOfCode.Year_2015.Day_06;
 
 import java.util.ArrayList;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Probably_a_Fire_Hazard {
+public class Probably_a_Fire_Hazard extends AOCExercise {
     private static final int LIGHTS_X = 1000;
     private static final int LIGHTS_Y = 1000;
     private static boolean[][] lights = new boolean[LIGHTS_Y][LIGHTS_X];
     private static int[][] brightLights = new int[LIGHTS_Y][LIGHTS_X];
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 6);
+    public Probably_a_Fire_Hazard() {
         initializeLightsandBrightLights();
-        // Exercise 1
+    }
+
+    @Override
+    public String answer1() {
         initializeInstructions(input);
-        System.out.println(countLitLights());
-        // Exercise 2
+        return "" + countLitLights();
+    }
+
+    @Override
+    public String answer2() {
         initializeInstructionsByBrightness(input);
-        System.out.println(getTotalBrightness());
+        return "" + getTotalBrightness();
     }
 
     private static int getTotalBrightness() {

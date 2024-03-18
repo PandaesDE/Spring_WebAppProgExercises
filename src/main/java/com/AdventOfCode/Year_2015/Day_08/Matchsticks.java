@@ -1,21 +1,25 @@
 package com.AdventOfCode.Year_2015.Day_08;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Matchsticks {
+public class Matchsticks extends AOCExercise {
     private static int chars_literals = 0;
     private static int chars_escaped = 0;
     private static int chars_encoded = 0;
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2015, 8);
-        // Exercise 1
+    @Override
+    public String answer1() {
         calculateAllChars(input);
         calculateEscapedChars(input);
-        // Exercise 2
+        return null;
+    }
+
+    @Override
+    public String answer2() {
         calculateEncodedChars(input);
         printCharAmounts();
-
+        return null;
     }
 
     private static void printCharAmounts() {
@@ -76,5 +80,4 @@ public class Matchsticks {
             chars_escaped++;
         }
     }
-
 }

@@ -5,16 +5,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Security_Through_Obscurity {
+public class Security_Through_Obscurity extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2016, 4);
-        // Exercise 1
-        System.out.println(getSectorIDSum(input));
-        // Exercise 2
-        System.out.println(getNorthPoleSectorID(input));
+    @Override
+    public String answer1() {
+        return "" + getSectorIDSum(input);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + getNorthPoleSectorID(input);
     }
 
     private static int getNorthPoleSectorID(String input) {

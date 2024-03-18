@@ -3,17 +3,19 @@ package com.AdventOfCode.Year_2016.Day_06;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Signals_and_Noise {
+public class Signals_and_Noise extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2016, 6);
-        // Exercise 1
-        System.out.println(getErrorCorrectedVersion(createColumnStrings(input)));
-        // Exercise 2
-        System.out.println(getNewErrorCorrectedVersion(createColumnStrings(input)));
+    @Override
+    public String answer1() {
+        return getErrorCorrectedVersion(createColumnStrings(input));
+    }
 
+    @Override
+    public String answer2() {
+        return getNewErrorCorrectedVersion(createColumnStrings(input));
     }
 
     private static String getNewErrorCorrectedVersion(ArrayList<String> columnStrings) {

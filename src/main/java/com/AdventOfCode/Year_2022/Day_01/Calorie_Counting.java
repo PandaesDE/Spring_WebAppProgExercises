@@ -7,19 +7,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Calorie_Counting {
+public class Calorie_Counting extends AOCExercise {
     private static HashMap<Integer, Integer> cals = new HashMap<Integer, Integer>();
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2022, 1);
+    public Calorie_Counting() {
         initializeCals(Conveniencer.convertTextToLines(input));
         sortCals();
-        // 1
-        System.out.println(getCaloriesOfElvesWithMostSnacks(1));
-        // 2
-        System.out.println(getCaloriesOfElvesWithMostSnacks(3));
+    }
+
+    @Override
+    public String answer1() {
+        return "" + getCaloriesOfElvesWithMostSnacks(1);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + getCaloriesOfElvesWithMostSnacks(3);
     }
 
     public static void sortCals() {
@@ -61,5 +67,4 @@ public class Calorie_Counting {
 
         return rCals;
     }
-
 }

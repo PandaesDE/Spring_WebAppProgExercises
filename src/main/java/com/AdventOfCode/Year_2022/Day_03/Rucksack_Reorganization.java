@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-public class Rucksack_Reorganization {
+public class Rucksack_Reorganization extends AOCExercise {
 
-    public static void main(String[] args) {
-        String input = Conveniencer.getInput(2022, 3);
-        ArrayList<String> backpacks = Conveniencer.convertTextToLines(input);
-        // 1
-        System.out.println(getSumOfPriorities(backpacks));
-        // 2
-        System.out.println(getGroupPrioritySum(backpacks));
+    ArrayList<String> backpacks = Conveniencer.convertTextToLines(input);
 
+    @Override
+    public String answer1() {
+        return "" + getSumOfPriorities(backpacks);
+    }
+
+    @Override
+    public String answer2() {
+        return "" + getGroupPrioritySum(backpacks);
     }
 
     private static int getGroupPrioritySum(ArrayList<String> backpacks) {
