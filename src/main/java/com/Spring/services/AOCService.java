@@ -287,11 +287,46 @@ public class AOCService {
 
     public String getAnswer(int year, int day) {
         String key = "" + year + day;
-        if (!AOCLogicMap.containsKey(key)) {
-            return "this exercise has not been done yet";
+        RequestServiceObject rso = requestLogicMap(key);
+        if (!rso.worked) {
+            return rso.message;
         }
         AOCExercise req = AOCLogicMap.get(key);
         return "a1: " + req.answer1() + " | a2: " + req.answer2();
     }
 
+    public String getCode(int year, int day) {
+        String key = "" + year + day;
+        RequestServiceObject rso = requestLogicMap(key);
+        if (!rso.worked) {
+            return rso.message;
+        }
+        AOCExercise req = AOCLogicMap.get(key);
+        String name = req.getClass().getSimpleName() + ".java";
+
+        String dayS = "" + day;
+        if (day < 10 ) dayS = "0" + day;
+        String path = "AdventOfCode/Year_" + year + "/Day_" + dayS + "/" + name;
+
+        return new FileReadingService().readFileContent(path);
+    }
+
+    private RequestServiceObject requestLogicMap(String key) {
+        RequestServiceObject rso = new RequestServiceObject();
+        if (!AOCLogicMap.containsKey(key)) {
+            rso.message = "this exercise does not exist";
+            rso.worked = false;
+        }
+        else if (AOCLogicMap.get(key) instanceof AOCExerciseMissing) {
+            rso.message = "this exercise has not been done yet";
+            rso.worked = false;
+        }
+        return rso;
+    }
+
+    private class RequestServiceObject
+    {
+        public String message = "worked";
+        public boolean worked = true;
+    }
 }

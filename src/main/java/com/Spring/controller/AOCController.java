@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AOCController {
 
     private final AOCService aocService;
-    private final FileReadingService frService = new FileReadingService();
 
     public AOCController(AOCService service) {
         this.aocService = service; //TODO: Research is this autowiring?
@@ -31,11 +30,7 @@ public class AOCController {
             (@PathVariable(name = "year") int year,
              @PathVariable(name = "day") int day)
     {
-        String dayS = "" + day;
-        if (day < 10 ) dayS = "0" + day;
-
-        String path = "AdventOfCode/Year_" + year + "/Day_" + dayS + "/Not_Quite_Lisp.java";
-        return frService.readFileContent(path);
+        return aocService.getCode(year, day);
     }
 
     @GetMapping("/setInput/{year}/{day}")
