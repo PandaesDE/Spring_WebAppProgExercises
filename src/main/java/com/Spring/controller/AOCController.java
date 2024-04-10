@@ -21,6 +21,7 @@ import com.AdventOfCode.Year_2022.Day_01.Calorie_Counting;
 import com.AdventOfCode.Year_2022.Day_02.Rock_Paper_Scissors;
 import com.AdventOfCode.Year_2022.Day_03.Rucksack_Reorganization;
 import com.AdventOfCode.Year_2022.Day_04.Camp_Cleanup;
+import com.Spring.controller.responsePojos.AnswerPojo;
 import com.Spring.model.entities.AOCEntity;
 import com.Spring.services.AOCService;
 import com.Spring.services.FileReadingService;
@@ -276,17 +277,18 @@ public class AOCController {
     }};
 
     @GetMapping("/{year}/{day}")
-    public String getAOCAnswers
+    public AnswerPojo getAOCAnswers
             (@PathVariable(name = "year") int year,
              @PathVariable(name = "day") int day)
     {
         String key = "" + year + day;
         RequestServiceObject rso = requestLogicMap(key);
         if (!rso.worked) {
-            return rso.message;
+            return new AnswerPojo();
         }
         AOCExercise req = AOCLogicMap.get(key);
-        return "First Answer: " + req.answer1() + "\n Second Answer: " + req.answer2();
+        req.setInput(aocService.getExercise(year, day).getInput());
+        return new AnswerPojo(req.answer1(), req.answer2());
     }
 
     @GetMapping("/getCode/{year}/{day}")
@@ -332,7 +334,6 @@ public class AOCController {
         //TODO: how to get very long strings?
         AOCEntity e = new AOCEntity(year, day);
         e.setInput(input);
-        System.out.println(input); //TODO: REMOVE
         aocService.saveEntity(e);
     }
 

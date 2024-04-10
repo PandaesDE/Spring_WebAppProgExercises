@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Conveniencer {
 
@@ -26,38 +28,24 @@ public class Conveniencer {
     }
 
     public static String getInput(String path) {
-        String input = "";
+        StringBuilder input = new StringBuilder();
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             while (br.ready()) {
-                input += br.readLine() + "\n";
+                input.append(br.readLine()).append("\n");
             }
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
             return ("");
         }
-        return input;
+        return input.toString();
     }
 
-    public static ArrayList<String> convertTextToLines(String text) {
-        ArrayList<String> lines = new ArrayList<>();
-        // Exception if no breakLine
-        if (text.indexOf("\n") == -1) {
-            lines.add(text);
-            return lines;
-        }
-        int breakLineIndex = 0;
-        int nextBreakLineIndex = 0;
-        while (true) {
-            nextBreakLineIndex = text.indexOf("\n", breakLineIndex);
-            if (nextBreakLineIndex == -1)
-                break;
-            lines.add(text.substring(breakLineIndex, nextBreakLineIndex));
-            breakLineIndex = nextBreakLineIndex + 1;
-        }
-        return lines;
+    public static List<String> convertTextToLines(String text) {
+        return Arrays.stream(text.split("\n")).toList();
     }
+
 
     public static int stringToInt(String s) {
         try {

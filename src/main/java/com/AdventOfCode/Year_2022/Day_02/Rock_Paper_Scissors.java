@@ -1,13 +1,14 @@
 package com.AdventOfCode.Year_2022.Day_02;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
 public class Rock_Paper_Scissors extends AOCExercise {
 
-    private ArrayList<String> rounds = Conveniencer.convertTextToLines(input);
+    private List<String> rounds = Conveniencer.convertTextToLines(input);
 
     @Override
     public String answer1() {
@@ -19,7 +20,7 @@ public class Rock_Paper_Scissors extends AOCExercise {
         return "" + calculateScoreByTrueGuide(rounds);
     }
 
-    private static int calculateScoreByGuide(ArrayList<String> rounds) {
+    private static int calculateScoreByGuide(List<String> rounds) {
         int out = 0;
         for (String i : rounds) {
             out += getRoundResult(i.charAt(0), i.charAt(2));
@@ -27,7 +28,7 @@ public class Rock_Paper_Scissors extends AOCExercise {
         return out;
     }
 
-    private static int calculateScoreByTrueGuide(ArrayList<String> rounds) {
+    private static int calculateScoreByTrueGuide(List<String> rounds) {
         int out = 0;
         for (String i : rounds) {
             out += getTrueRoundResult(i.charAt(0), i.charAt(2));

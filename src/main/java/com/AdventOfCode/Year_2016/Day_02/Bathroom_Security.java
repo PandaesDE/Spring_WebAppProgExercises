@@ -1,6 +1,6 @@
 package com.AdventOfCode.Year_2016.Day_02;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -19,7 +19,7 @@ public class Bathroom_Security extends AOCExercise {
 
     private static String getNewCode(String instructions) {
         String code = "";
-        ArrayList<String> codeLines = Conveniencer.convertTextToLines(instructions);
+        List<String> codeLines = Conveniencer.convertTextToLines(instructions);
         for (String iterator : codeLines) {
             code += getNewDialNumber(iterator);
         }
@@ -62,7 +62,7 @@ public class Bathroom_Security extends AOCExercise {
 
     private static String getCode(String instructions) {
         String code = "";
-        ArrayList<String> codeLines = Conveniencer.convertTextToLines(instructions);
+        List<String> codeLines = Conveniencer.convertTextToLines(instructions);
         for (String iterator : codeLines) {
             code += getDialNumber(iterator);
         }

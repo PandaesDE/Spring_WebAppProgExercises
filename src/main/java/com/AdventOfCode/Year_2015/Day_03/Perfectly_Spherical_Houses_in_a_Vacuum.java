@@ -16,11 +16,12 @@ public class Perfectly_Spherical_Houses_in_a_Vacuum extends AOCExercise {
 
     private static int getTotalHouseAmountWithRoboSanta(String instructions) {
         ArrayList<Pair> housesWithPresent = new ArrayList<Pair>();
+        housesWithPresent.add(new Pair(0, 0));
         int santaX = 0;
         int santaY = 0;
         int roboX = 0;
         int roboY = 0;
-        for (int i = 0; i < instructions.length() - 1; i++) {
+        for (int i = 0; i < instructions.length(); i++) {
             if (i % 2 == 0) {
                 santaX += getXInstruction(instructions.charAt(i));
                 santaY += getYInstruction(instructions.charAt(i));
@@ -52,7 +53,7 @@ public class Perfectly_Spherical_Houses_in_a_Vacuum extends AOCExercise {
         int x = 0;
         int y = 0;
 
-        for (int i = 0; i < instructions.length() - 1; i++) {
+        for (int i = 0; i < instructions.length(); i++) {
             x += getXInstruction(instructions.charAt(i));
             y += getYInstruction(instructions.charAt(i));
             boolean add = true;

@@ -1,6 +1,7 @@
 package com.AdventOfCode.Year_2015.Day_06;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -11,18 +12,17 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
     private static boolean[][] lights = new boolean[LIGHTS_Y][LIGHTS_X];
     private static int[][] brightLights = new int[LIGHTS_Y][LIGHTS_X];
 
-    public Probably_a_Fire_Hazard() {
-        initializeLightsandBrightLights();
-    }
 
     @Override
     public String answer1() {
+        initializeLightsandBrightLights();
         initializeInstructions(input);
         return "" + countLitLights();
     }
 
     @Override
     public String answer2() {
+        initializeLightsandBrightLights();
         initializeInstructionsByBrightness(input);
         return "" + getTotalBrightness();
     }
@@ -40,7 +40,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
         int counter = 0;
         for (int i = 0; i < LIGHTS_Y; i++) {
             for (int j = 0; j < LIGHTS_X; j++) {
-                if (lights[i][j] == true)
+                if (lights[i][j])
                     counter++;
             }
         }
@@ -48,7 +48,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
     }
 
     private static void initializeInstructionsByBrightness(String input) {
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iterator : lines) {
             String ints = trimLetters(iterator);
             ints = seperateInts(ints);
@@ -58,7 +58,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
     }
 
     private static void initializeInstructions(String input) {
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iterator : lines) {
             String ints = trimLetters(iterator);
             ints = seperateInts(ints);
@@ -119,7 +119,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
                 if (s.charAt(startIndex) == ',')
                     startIndex++;
                 else {
-                    s = s.substring(startIndex, s.length());
+                    s = s.substring(startIndex);
                     break;
                 }
             }
@@ -127,7 +127,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
         // seperate ints by one comma
         for (int i = 0; i < s.length() - 1; i++) {
             if (s.charAt(i) == ',' && s.charAt(i + 1) == ',')
-                s = s.substring(0, i) + s.substring(i + 1, s.length());
+                s = s.substring(0, i) + s.substring(i + 1);
         }
         return s;
     }
@@ -188,7 +188,7 @@ public class Probably_a_Fire_Hazard extends AOCExercise {
         int height = y2 - y1 + 1;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                if (lights[(y1 + i)][(x1 + j)] == true)
+                if (lights[(y1 + i)][(x1 + j)])
                     lights[(y1 + i)][(x1 + j)] = false;
                 else
                     lights[(y1 + i)][(x1 + j)] = true;

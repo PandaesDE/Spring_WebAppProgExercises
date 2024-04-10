@@ -1,6 +1,6 @@
 package com.AdventOfCode.Year_2016.Day_03;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -19,7 +19,7 @@ public class Squares_With_Three_Sides extends AOCExercise {
 
     private static int getVerticalTriangleAmount(String input) {
         int counter = 0;
-        ArrayList<String> triangles = Conveniencer.convertTextToLines(input);
+        List<String> triangles = Conveniencer.convertTextToLines(input);
         for (int i = 0; i < triangles.size() / 3; i++) {
             int[][] threeSides = rearangeLines(getTriangleSides(triangles.get(i * 3)),
                     getTriangleSides(triangles.get((i * 3) + 1)), getTriangleSides(triangles.get((i * 3) + 2)));
@@ -58,7 +58,7 @@ public class Squares_With_Three_Sides extends AOCExercise {
 
     private static int getTriangleAmount(String input) {
         int counter = 0;
-        ArrayList<String> triangles = Conveniencer.convertTextToLines(input);
+        List<String> triangles = Conveniencer.convertTextToLines(input);
         for (String iterator : triangles) {
             int[] sides = getTriangleSides(iterator);
             if (checkForValidTriangle(sides))

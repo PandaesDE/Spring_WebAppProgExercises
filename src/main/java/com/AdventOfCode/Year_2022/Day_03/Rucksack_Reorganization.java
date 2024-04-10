@@ -2,6 +2,7 @@ package com.AdventOfCode.Year_2022.Day_03;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.AdventOfCode.AOCExercise;
@@ -9,7 +10,7 @@ import com.AdventOfCode.Conveniencer;
 
 public class Rucksack_Reorganization extends AOCExercise {
 
-    ArrayList<String> backpacks = Conveniencer.convertTextToLines(input);
+    List<String> backpacks = Conveniencer.convertTextToLines(input);
 
     @Override
     public String answer1() {
@@ -21,7 +22,7 @@ public class Rucksack_Reorganization extends AOCExercise {
         return "" + getGroupPrioritySum(backpacks);
     }
 
-    private static int getGroupPrioritySum(ArrayList<String> backpacks) {
+    private static int getGroupPrioritySum(List<String> backpacks) {
         int prioritysum = 0;
         int iteration = 0;
         String bp1 = "";
@@ -42,7 +43,7 @@ public class Rucksack_Reorganization extends AOCExercise {
         return prioritysum;
     }
 
-    private static int getSumOfPriorities(ArrayList<String> backpacks) {
+    private static int getSumOfPriorities(List<String> backpacks) {
         int prioritySum = 0;
         ArrayList<String> compartments1 = new ArrayList<>();
         ArrayList<String> compartments2 = new ArrayList<>();

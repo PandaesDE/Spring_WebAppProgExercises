@@ -9,7 +9,7 @@ public class AOCEntity {
     private AOCKey key;
     private String name;
     @Column(columnDefinition = "TEXT")
-    private String input;
+    private String input = "";
 
 
     public AOCEntity(int year, int day) {

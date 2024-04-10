@@ -1,10 +1,6 @@
 package com.AdventOfCode.Year_2022.Day_01;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.AdventOfCode.AOCExercise;
@@ -40,7 +36,7 @@ public class Calorie_Counting extends AOCExercise {
                         LinkedHashMap::new));
     }
 
-    private static void initializeCals(ArrayList<String> lines) {
+    private static void initializeCals(List<String> lines) {
         int elve = 0;
         for (String i : lines) {
             if (i.length() == 0) {

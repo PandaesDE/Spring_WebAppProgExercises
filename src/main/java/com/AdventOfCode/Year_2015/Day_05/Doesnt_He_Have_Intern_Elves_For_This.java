@@ -1,6 +1,7 @@
 package com.AdventOfCode.Year_2015.Day_05;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -19,7 +20,7 @@ public class Doesnt_He_Have_Intern_Elves_For_This extends AOCExercise {
 
     private static int countNiceStringsWithNewRules(String input) {
         int counter = 0;
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iterator : lines) {
             if (containsTwoLettersTwiceWithoutOverlap(iterator) && containsRepeatLetterWithOneInBetweenLetter(iterator))
                 counter++;
@@ -58,7 +59,7 @@ public class Doesnt_He_Have_Intern_Elves_For_This extends AOCExercise {
 
     private static int countNiceStrings(String input) {
         int counter = 0;
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iterator : lines) {
             if (atLeastThreeVowels(iterator) && atLeastOneDoubleLetter(iterator) && noFilterStrings(iterator))
                 counter++;

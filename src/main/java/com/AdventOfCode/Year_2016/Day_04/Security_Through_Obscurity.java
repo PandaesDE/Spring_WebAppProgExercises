@@ -1,9 +1,6 @@
 package com.AdventOfCode.Year_2016.Day_04;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -21,7 +18,7 @@ public class Security_Through_Obscurity extends AOCExercise {
     }
 
     private static int getNorthPoleSectorID(String input) {
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iString : lines) {
             if (decryptRoomName(iString).equals("northpole-object-storage"))
                 return getSectorID(iString);
@@ -45,7 +42,7 @@ public class Security_Through_Obscurity extends AOCExercise {
 
     private static int getSectorIDSum(String input) {
         int counter = 0;
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         for (String iString : lines) {
             if (checkSumName(iString))
                 counter += getSectorID(iString);
@@ -77,7 +74,7 @@ public class Security_Through_Obscurity extends AOCExercise {
         String checkSum = room.substring(0, room.lastIndexOf('-'));
         checkSum = checkSum.replaceAll("-", "");
         checkSum = getAlphabeticalOrderedString(checkSum);
-        ArrayList<String> letters = getLetterList(checkSum);
+        List<String> letters = getLetterList(checkSum);
         letters = sortByStringlength(letters);
         checkSum = "";
         for (int i = 0; i < checkSumLength; i++) {
@@ -87,7 +84,7 @@ public class Security_Through_Obscurity extends AOCExercise {
     }
 
     // https://stackoverflow.com/questions/31629964/sorting-arraylist-by-sting-length-in-java
-    private static ArrayList<String> sortByStringlength(ArrayList<String> list) {
+    private static List<String> sortByStringlength(List<String> list) {
         Collections.sort(list, new Comparator<String>() {
             public int compare(String o1, String o2) {
                 return o2.length() - o1.length();
@@ -96,8 +93,8 @@ public class Security_Through_Obscurity extends AOCExercise {
         return list;
     }
 
-    private static ArrayList<String> getLetterList(String line) {
-        ArrayList<String> letters = new ArrayList<String>();
+    private static List<String> getLetterList(String line) {
+        List<String> letters = new ArrayList<>();
         int startIndex = 0;
         for (int i = 0; i <= line.length(); i++) {
             while (true) {

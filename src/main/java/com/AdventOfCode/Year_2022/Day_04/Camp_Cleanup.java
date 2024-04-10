@@ -1,13 +1,14 @@
 package com.AdventOfCode.Year_2022.Day_04;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
 public class Camp_Cleanup extends AOCExercise {
 
-    ArrayList<String> pairs = Conveniencer.convertTextToLines(input);
+    List<String> pairs = Conveniencer.convertTextToLines(input);
 
     @Override
     public String answer1() {
@@ -19,7 +20,7 @@ public class Camp_Cleanup extends AOCExercise {
         return "" + getAmountOfOverlappingPairs(pairs);
     }
 
-    private static int getAmountOfOverlappingPairs(ArrayList<String> pairs) {
+    private static int getAmountOfOverlappingPairs(List<String> pairs) {
         int counter = 0;
         for (String i : pairs) {
             if (isPairAlreadyOverlapping(pairStringToIntArray(i))) {
@@ -30,7 +31,7 @@ public class Camp_Cleanup extends AOCExercise {
         return counter;
     }
 
-    private static int getAmountOfFullyContainedPairs(ArrayList<String> pairs) {
+    private static int getAmountOfFullyContainedPairs(List<String> pairs) {
         int counter = 0;
         for (String i : pairs) {
             if (isPairAlreadyContained(pairStringToIntArray(i))) {

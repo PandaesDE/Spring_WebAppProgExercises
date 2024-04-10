@@ -2,6 +2,7 @@ package com.AdventOfCode.Year_2016.Day_06;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -71,7 +72,7 @@ public class Signals_and_Noise extends AOCExercise {
 
     private static ArrayList<String> createColumnStrings(String input) {
         String column = "";
-        ArrayList<String> lines = Conveniencer.convertTextToLines(input);
+        List<String> lines = Conveniencer.convertTextToLines(input);
         ArrayList<String> columns = new ArrayList<String>();
         for (int i = 0; i < input.substring(0, input.indexOf("\n")).length(); i++) {
             for (String iString : lines) {

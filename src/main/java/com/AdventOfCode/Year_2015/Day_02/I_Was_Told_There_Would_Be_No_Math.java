@@ -1,6 +1,7 @@
 package com.AdventOfCode.Year_2015.Day_02;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
@@ -15,7 +16,7 @@ public class I_Was_Told_There_Would_Be_No_Math extends AOCExercise {
         return "" + getTotalRibonLength(Conveniencer.convertTextToLines(input));
     }
 
-    private static int getTotalRibonLength(ArrayList<String> input) {
+    private static int getTotalRibonLength(List<String> input) {
         int totalLength = 0;
         for (String iterator : input) {
             int[] arr = convertStringDimensionToIntArray(iterator);
@@ -36,7 +37,7 @@ public class I_Was_Told_There_Would_Be_No_Math extends AOCExercise {
         return shortestDistanceWrap + bowLength;
     }
 
-    private static int getTotalDimension(ArrayList<String> input) {
+    private static int getTotalDimension(List<String> input) {
         int totalDimension = 0;
         for (String iterator : input) {
             int[] arr = convertStringDimensionToIntArray(iterator);
