@@ -7,14 +7,14 @@ import com.AdventOfCode.Year_2015.Day_04.The_Ideal_Stocking_Stuffer;
 import com.AdventOfCode.Year_2015.Day_05.Doesnt_He_Have_Intern_Elves_For_This;
 import com.AdventOfCode.Year_2015.Day_06.Probably_a_Fire_Hazard;
 import com.AdventOfCode.Year_2015.Day_07.Some_Assembly_Required;
+import com.AdventOfCode.Year_2015.Day_08.Matchsticks;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Year2015Tests {
 
     @Test
-    void day1_part1()
-    {
+    void day1_part1() {
         AOCExercise d1 = new Not_Quite_Lisp();
 
         d1.input = "(())";
@@ -46,8 +46,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day1_part2()
-    {
+    void day1_part2() {
         AOCExercise ex = new Not_Quite_Lisp();
 
         ex.input = ")";
@@ -58,8 +57,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day2_part1()
-    {
+    void day2_part1() {
         AOCExercise ex = new I_Was_Told_There_Would_Be_No_Math();
 
         ex.input = "2x3x4";
@@ -70,8 +68,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day2_part2()
-    {
+    void day2_part2() {
         AOCExercise ex = new I_Was_Told_There_Would_Be_No_Math();
 
         ex.input = "2x3x4";
@@ -82,8 +79,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day3_part1()
-    {
+    void day3_part1() {
         AOCExercise ex = new Perfectly_Spherical_Houses_in_a_Vacuum();
 
         ex.input = ">";
@@ -97,8 +93,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day3_part2()
-    {
+    void day3_part2() {
         AOCExercise ex = new Perfectly_Spherical_Houses_in_a_Vacuum();
 
         ex.input = "^v";
@@ -112,8 +107,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day4_part1()
-    {
+    void day4_part1() {
         AOCExercise ex = new The_Ideal_Stocking_Stuffer();
 
         ex.input = "abcdef";
@@ -124,8 +118,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day4_part2()
-    {
+    void day4_part2() {
         AOCExercise ex = new The_Ideal_Stocking_Stuffer();
 
         ex.input = "ckczppom";
@@ -133,8 +126,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day5_part1()
-    {
+    void day5_part1() {
         AOCExercise ex = new Doesnt_He_Have_Intern_Elves_For_This();
 
         ex.input = "ugknbfddgicrmopn";
@@ -154,8 +146,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day5_part2()
-    {
+    void day5_part2() {
         AOCExercise ex = new Doesnt_He_Have_Intern_Elves_For_This();
 
         ex.input = "qjhvhtzxzqqjkmpb";
@@ -172,8 +163,7 @@ public class Year2015Tests {
     }
 
     @Test
-    void day6_part1()
-    {
+    void day6_part1() {
         AOCExercise ex = new Probably_a_Fire_Hazard();
 
         ex.input = "turn on 0,0 through 999,999";
@@ -182,14 +172,13 @@ public class Year2015Tests {
         ex.input = "turn on 0,0 through 999,0";
         Assertions.assertThat(ex.answer1()).isEqualTo("1000");
 
-        ex.input =  "turn on 0,0 through 999,999\n" +
-                    "turn off 499,499 through 500,500";
+        ex.input = "turn on 0,0 through 999,999\n" +
+                "turn off 499,499 through 500,500";
         Assertions.assertThat(ex.answer1()).isEqualTo("999996");
     }
 
     @Test
-    void day6_part2()
-    {
+    void day6_part2() {
         AOCExercise ex = new Probably_a_Fire_Hazard();
 
         ex.input = "turn on 0,0 through 0,0";
@@ -200,8 +189,45 @@ public class Year2015Tests {
     }
 
     @Test
-    void day7_part1()
-    {
+    void day7_part1() {
+        AOCExercise ex = new Some_Assembly_Required();
+
+        ex.input = "123 -> x\n" +
+                "456 -> y\n" +
+                "x AND y -> d\n" +
+                "x OR y -> e\n" +
+                "x LSHIFT 2 -> f\n" +
+                "y RSHIFT 2 -> g\n" +
+                "NOT x -> h\n" +
+                "NOT y -> i";
+
+        ex.args = new String[] {"d"};
+        Assertions.assertThat(ex.answer1()).isEqualTo("72");
+
+        ex.args[0] = "e";
+        Assertions.assertThat(ex.answer1()).isEqualTo("507");
+
+        ex.args[0] = "f";
+        Assertions.assertThat(ex.answer1()).isEqualTo("492");
+
+        ex.args[0] = "g";
+        Assertions.assertThat(ex.answer1()).isEqualTo("114");
+
+        ex.args[0] = "h";
+        Assertions.assertThat(ex.answer1()).isEqualTo("65412");
+
+        ex.args[0] = "i";
+        Assertions.assertThat(ex.answer1()).isEqualTo("65079");
+
+        ex.args[0] = "x";
+        Assertions.assertThat(ex.answer1()).isEqualTo("123");
+
+        ex.args[0] = "y";
+        Assertions.assertThat(ex.answer1()).isEqualTo("456");
+    }
+
+    @Test
+    void day7_part2() {
         AOCExercise ex = new Some_Assembly_Required();
 
         ex.input = "NOT dq -> dr\n" +
@@ -544,9 +570,14 @@ public class Year2015Tests {
                 "fo RSHIFT 3 -> fq\n" +
                 "he RSHIFT 2 -> hf";
 
-
-        Assertions.assertThat(ex.answer1()).isEqualTo("3176");
-
         Assertions.assertThat(ex.answer2()).isEqualTo("14710");
+    }
+
+
+    @Test
+    void day8_part1() {
+        AOCExercise ex = new Matchsticks();
+
+
     }
 }

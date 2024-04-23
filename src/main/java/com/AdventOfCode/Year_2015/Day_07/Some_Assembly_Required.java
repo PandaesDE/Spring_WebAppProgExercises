@@ -7,31 +7,41 @@ import java.util.Objects;
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
+/**
+ * First arg is the wire name which will be requested
+ * Second arg is the wire name to map the first solution on
+ */
 public class Some_Assembly_Required extends AOCExercise {
     private static final int MAX_BIX = 16;
-
     private static HashMap<String, WireConnection> wireConnections;
 
 
     @Override
     public String answer1() {
+        if (this.args == null || this.args.length < 1) this.args = new String[] {"a"};
+
         List<String> operations = Conveniencer.convertTextToLines(input);
         wireConnections = new HashMap<>();
         initializeWireConnections(operations);
 
-        return "" +getWireValue(new Wire("a"));
+        return "" +getWireValue(new Wire(args[0]));
     }
 
     @Override
     public String answer2() {
+        if (this.args == null || this.args.length < 1)
+        {
+            this.args = new String[] {"a", "b"};
+        }
+
         List<String> operations = Conveniencer.convertTextToLines(input);
         wireConnections = new HashMap<>();
         initializeWireConnections(operations);
 
-        addWireConnection("b", new String[] {answer1()}, "EQUALS");
+        addWireConnection(args[1], new String[] {answer1()}, "EQUALS");
         WireCache.reset();
 
-        return "" +getWireValue(new Wire("a"));
+        return "" +getWireValue(new Wire(args[0]));
     }
 
     private static void printWireConnections() { //TODO: REMOVE DEBUG
