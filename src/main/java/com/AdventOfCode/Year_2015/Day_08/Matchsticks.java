@@ -10,30 +10,22 @@ public class Matchsticks extends AOCExercise {
 
     @Override
     public String answer1() {
-        calculateAllChars(input);
+        chars_literals = input.length();
         calculateEscapedChars(input);
-        return null;
+        return "" + (chars_literals - chars_escaped);
     }
 
     @Override
     public String answer2() {
+        chars_literals = input.length();
         calculateEncodedChars(input);
-        printCharAmounts();
-        return null;
-    }
-
-    private static void printCharAmounts() {
-        System.out.println("literals: " + chars_literals + "\n" +
-                "escaped: " + chars_escaped + "\n" +
-                "encoded: " + chars_encoded + "\n" +
-                "(1): literals - escaped: " + (chars_literals - chars_escaped) + "\n" +
-                "(2): encoded - literals: " + (chars_encoded - chars_literals));
+        return "" + (chars_encoded - chars_literals);
     }
 
     private static void calculateEncodedChars(String s) {
-        chars_encoded = 0;
-        chars_encoded = Conveniencer.findOccurences(s, "\n") * 2; // including the surrounding double quotes
-        System.out.println(chars_encoded);
+        chars_encoded = 2;
+        chars_encoded += Conveniencer.findOccurences(s, "\n") * 2; // including the surrounding double quotes
+
         for (int cur = 0; cur < chars_literals; cur++) {
             // case: \
             if (s.charAt(cur) == '\\') {
@@ -47,10 +39,6 @@ public class Matchsticks extends AOCExercise {
             }
             chars_encoded++;
         }
-    }
-
-    private static void calculateAllChars(String s) {
-        chars_literals = s.length();
     }
 
     private static void calculateEscapedChars(String s) {

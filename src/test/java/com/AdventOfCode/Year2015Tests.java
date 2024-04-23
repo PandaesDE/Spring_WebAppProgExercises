@@ -578,6 +578,45 @@ public class Year2015Tests {
     void day8_part1() {
         AOCExercise ex = new Matchsticks();
 
+        ex.input = "\"\"";
+        Assertions.assertThat(ex.answer1()).isEqualTo("2");
 
+        ex.input = "\"abc\"";
+        Assertions.assertThat(ex.answer1()).isEqualTo("2");
+
+        ex.input = "\"aaa\\\"aaa\"";
+        Assertions.assertThat(ex.answer1()).isEqualTo("3");
+
+        ex.input = "\"\\x27\"";
+        Assertions.assertThat(ex.answer1()).isEqualTo("5");
+
+        ex.input =  "\"\"\n" +
+                    "\"abc\"\n" +
+                    "\"aaa\\\"aaa\"\n" +
+                    "\"\\x27\"";
+        Assertions.assertThat(ex.answer1()).isEqualTo("12");
+    }
+
+    @Test
+    void day8_part2() {
+        AOCExercise ex = new Matchsticks();
+
+        ex.input = "\"\"";
+        Assertions.assertThat(ex.answer2()).isEqualTo("4");
+
+        ex.input = "\"abc\"";
+        Assertions.assertThat(ex.answer2()).isEqualTo("4");
+
+        ex.input = "\"aaa\\\"aaa\"";
+        Assertions.assertThat(ex.answer2()).isEqualTo("6");
+
+        ex.input = "\"\\x27\"";
+        Assertions.assertThat(ex.answer2()).isEqualTo("5");
+
+        ex.input =  "\"\"\n" +
+                "\"abc\"\n" +
+                "\"aaa\\\"aaa\"\n" +
+                "\"\\x27\"";
+        Assertions.assertThat(ex.answer2()).isEqualTo("19");
     }
 }
