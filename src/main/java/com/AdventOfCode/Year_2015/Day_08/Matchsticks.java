@@ -24,7 +24,7 @@ public class Matchsticks extends AOCExercise {
 
     private static void calculateEncodedChars(String s) {
         chars_encoded = 2;
-        chars_encoded += Conveniencer.findOccurences(s, "\n") * 2; // including the surrounding double quotes
+        chars_encoded += Conveniencer.getOccurrenceAmount(s, "\n") * 2; // including the surrounding double quotes
 
         for (int cur = 0; cur < chars_literals; cur++) {
             // case: \

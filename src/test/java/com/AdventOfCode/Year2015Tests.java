@@ -8,6 +8,7 @@ import com.AdventOfCode.Year_2015.Day_05.Doesnt_He_Have_Intern_Elves_For_This;
 import com.AdventOfCode.Year_2015.Day_06.Probably_a_Fire_Hazard;
 import com.AdventOfCode.Year_2015.Day_07.Some_Assembly_Required;
 import com.AdventOfCode.Year_2015.Day_08.Matchsticks;
+import com.AdventOfCode.Year_2015.Day_09.All_in_a_Single_Night;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -618,5 +619,45 @@ public class Year2015Tests {
                 "\"aaa\\\"aaa\"\n" +
                 "\"\\x27\"";
         Assertions.assertThat(ex.answer2()).isEqualTo("19");
+    }
+
+    @Test
+    void day9_part1() {
+        AOCExercise ex = new All_in_a_Single_Night();
+
+        ex.input = "Tristram to AlphaCentauri = 34\n" +
+                "Tristram to Snowdin = 100\n" +
+                "Tristram to Tambi = 63\n" +
+                "Tristram to Faerun = 108\n" +
+                "Tristram to Norrath = 111\n" +
+                "Tristram to Straylight = 89\n" +
+                "Tristram to Arbre = 132\n" +
+                "AlphaCentauri to Snowdin = 4\n" +
+                "AlphaCentauri to Tambi = 79\n" +
+                "AlphaCentauri to Faerun = 44\n" +
+                "AlphaCentauri to Norrath = 147\n" +
+                "AlphaCentauri to Straylight = 133\n" +
+                "AlphaCentauri to Arbre = 74\n" +
+                "Snowdin to Tambi = 105\n" +
+                "Snowdin to Faerun = 95\n" +
+                "Snowdin to Norrath = 48\n" +
+                "Snowdin to Straylight = 88\n" +
+                "Snowdin to Arbre = 7\n" +
+                "Tambi to Faerun = 68\n" +
+                "Tambi to Norrath = 134\n" +
+                "Tambi to Straylight = 107\n" +
+                "Tambi to Arbre = 40\n" +
+                "Faerun to Norrath = 11\n" +
+                "Faerun to Straylight = 66\n" +
+                "Faerun to Arbre = 144\n" +
+                "Norrath to Straylight = 115\n" +
+                "Norrath to Arbre = 135\n" +
+                "Straylight to Arbre = 127";
+
+        /*ex.input = "London to Dublin = 464\n" +
+                "London to Belfast = 518\n" +
+                "Dublin to Belfast = 141";*/
+
+        Assertions.assertThat(ex.answer1()).isEqualTo("605");
     }
 }

@@ -4,48 +4,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Conveniencer {
 
-    public static String getProjectPath() {
-        return new File("").getAbsolutePath();
-    }
-
-    public static String getInput(int year, int day, String fileName) {
-        String path = "";
-        if (day < 10)
-            path = getProjectPath() + "/src/aoc/Year_" + year + "/Day_0" + day + "/" + fileName;
-        else
-            path = getProjectPath() + "/src/aoc/Year_" + year + "/Day_" + day + "/" + fileName;
-        return getInput(path);
-    }
-
-    public static String getInput(int year, int day) {
-        return getInput(year, day, "input.txt");
-    }
-
-    public static String getInput(String path) {
-        StringBuilder input = new StringBuilder();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            while (br.ready()) {
-                input.append(br.readLine()).append("\n");
-            }
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ("");
-        }
-        return input.toString();
-    }
-
-    public static List<String> convertTextToLines(String text) {
+    public static List<String> convertTextToLines(String text)
+    {
         return Arrays.stream(text.split("\n")).toList();
     }
 
+    public static List<String> tokenizeString(String line)
+    {
+        return Arrays.stream(line.split(" ")).toList();
+    }
 
     public static int stringToInt(String s) {
         try {
@@ -58,7 +30,7 @@ public class Conveniencer {
     }
 
     // https://stackoverflow.com/questions/767759/find-the-number-of-occurrences-of-a-substring-in-a-string
-    public static int findOccurences(String s, String subS) {
+    public static int getOccurrenceAmount(String s, String subS) {
         int lastIndex = 0;
         int count = 0;
 
