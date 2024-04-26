@@ -9,6 +9,7 @@ import com.AdventOfCode.Year_2015.Day_06.Probably_a_Fire_Hazard;
 import com.AdventOfCode.Year_2015.Day_07.Some_Assembly_Required;
 import com.AdventOfCode.Year_2015.Day_08.Matchsticks;
 import com.AdventOfCode.Year_2015.Day_09.All_in_a_Single_Night;
+import com.AdventOfCode.Year_2015.Day_10.Elves_look_Elves_Say;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,7 @@ public class Year2015Tests {
         AOCExercise ex = new Not_Quite_Lisp();
 
         @Test
-        void day1_part1() {
+        void part1() {
             ex.input = "(())";
             Assertions.assertThat(ex.answer1()).isEqualTo("0");
 
@@ -69,7 +70,7 @@ public class Year2015Tests {
             "1x1x10"
         };
         @Test
-        void day2_part1() {
+        void part1() {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("58");
 
@@ -78,7 +79,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day2_part2() {
+        void part2() {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer2()).isEqualTo("34");
 
@@ -99,7 +100,7 @@ public class Year2015Tests {
         };
 
         @Test
-        void day3_part1() {
+        void part1() {
 
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("2");
@@ -112,7 +113,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day3_part2() {
+        void part2() {
 
             ex.input = inputs[3];
             Assertions.assertThat(ex.answer2()).isEqualTo("3");
@@ -131,7 +132,7 @@ public class Year2015Tests {
         AOCExercise ex = new The_Ideal_Stocking_Stuffer();
 
         @Test
-        void day4_part1() {
+        void part1() {
             ex.input = "abcdef";
             Assertions.assertThat(ex.answer1()).isEqualTo("609043");
 
@@ -140,7 +141,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day4_part2() {
+        void part2() {
             ex.input = "ckczppom";
             Assertions.assertThat(ex.answer2()).isEqualTo("3938038");
         }
@@ -152,7 +153,7 @@ public class Year2015Tests {
         AOCExercise ex = new Doesnt_He_Have_Intern_Elves_For_This();
 
         @Test
-        void day5_part1() {
+        void part1() {
             ex.input = "ugknbfddgicrmopn";
             Assertions.assertThat(ex.answer1()).isEqualTo("1");
 
@@ -170,7 +171,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day5_part2() {
+        void part2() {
             ex.input = "qjhvhtzxzqqjkmpb";
             Assertions.assertThat(ex.answer2()).isEqualTo("1");
 
@@ -203,7 +204,7 @@ public class Year2015Tests {
             "toggle 0,0 through 999,999"
         };
         @Test
-        void day6_part1() {
+        void part1() {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("1000000");
 
@@ -215,7 +216,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day6_part2() {
+        void part2() {
 
             ex.input = inputs[3];
             Assertions.assertThat(ex.answer2()).isEqualTo("1");
@@ -582,7 +583,7 @@ public class Year2015Tests {
         };
 
         @Test
-        void day7_part1() {
+        void part1() {
             ex.input = inputs[0];
 
             ex.args = new String[] {"d"};
@@ -611,7 +612,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day7_part2() {
+        void part2() {
             ex.input = inputs[1];
             Assertions.assertThat(ex.answer2()).isEqualTo("14710");
         }
@@ -636,7 +637,7 @@ public class Year2015Tests {
         };
 
         @Test
-        void day8_part1() {
+        void part1() {
 
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("2");
@@ -655,7 +656,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day8_part2()
+        void part2()
         {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer2()).isEqualTo("4");
@@ -716,7 +717,7 @@ public class Year2015Tests {
         };
 
         @Test
-        void part01()
+        void part1()
         {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("605");
@@ -725,7 +726,7 @@ public class Year2015Tests {
         }
 
         @Test
-        void day9_part2()
+        void part2()
         {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer2()).isEqualTo("982");
@@ -734,5 +735,41 @@ public class Year2015Tests {
         }
     }
 
+    @Nested
+    class day10
+    {
+        AOCExercise ex = new Elves_look_Elves_Say();
 
+        @Test
+        void part1()
+        {
+            ex.setArgs(new String[] {"1"});
+            ex.input = "1";
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+            ex.input = "11";
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+            ex.input = "21";
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+            ex.input = "1211";
+            Assertions.assertThat(ex.answer1()).isEqualTo("6");
+            ex.input = "111221";
+            Assertions.assertThat(ex.answer1()).isEqualTo("6");
+
+            ex.setArgs(new String[] {"40"});
+            ex.input = "1113122113";
+            Assertions.assertThat(ex.answer1()).isEqualTo("360154");
+
+            ex.setArgs(new String[] {"50"});
+            ex.input = "1113122113";
+            Assertions.assertThat(ex.answer1()).isEqualTo("5103798");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.setArgs(new String[] {"50"});
+            ex.input = "1113122113";
+            Assertions.assertThat(ex.answer2()).isEqualTo("5103798");
+        }
+    }
 }
