@@ -625,6 +625,12 @@ public class Year2015Tests {
     void day9_part1() {
         AOCExercise ex = new All_in_a_Single_Night();
 
+        ex.input = "London to Dublin = 464\n" +
+        "London to Belfast = 518\n" +
+        "Dublin to Belfast = 141";
+
+        Assertions.assertThat(ex.answer1()).isEqualTo("605");
+
         ex.input = "Tristram to AlphaCentauri = 34\n" +
                 "Tristram to Snowdin = 100\n" +
                 "Tristram to Tambi = 63\n" +
@@ -654,10 +660,7 @@ public class Year2015Tests {
                 "Norrath to Arbre = 135\n" +
                 "Straylight to Arbre = 127";
 
-        /*ex.input = "London to Dublin = 464\n" +
-                "London to Belfast = 518\n" +
-                "Dublin to Belfast = 141";*/
 
-        Assertions.assertThat(ex.answer1()).isEqualTo("605");
+        Assertions.assertThat(ex.answer1()).isEqualTo("251");
     }
 }

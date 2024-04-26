@@ -32,7 +32,7 @@ public class Station{
         return Collections.min(getAllDistancePaths(new ArrayList<String>(), 0));
     }
 
-    public List<Integer> getAllDistancePaths(List<String> visitedPlaces, int distance)
+    public List<Integer> getAllDistancePaths(List<String> visitedPlaces, int baseDistance)
     {
         boolean reachedEnd = true;
         List<Integer> distanceSums = new LinkedList<>();
@@ -46,15 +46,15 @@ public class Station{
 
             reachedEnd = false;
             Station s = stationDistanceEntry.getKey();
-            int newDistance = stationDistanceEntry.getValue() + distance;
+            int newDistance = stationDistanceEntry.getValue() + baseDistance;
 
             //merge all
-            List<Integer> childDistances = s.getAllDistancePaths(visitedPlaces, newDistance);
+            List<Integer> childDistances = s.getAllDistancePaths(new ArrayList<>(visitedPlaces), newDistance);
             distanceSums.addAll(childDistances);
         }
 
         //Base Case/ End of Graph
-        if (reachedEnd) distanceSums.add(distance);
+        if (reachedEnd) distanceSums.add(baseDistance);
 
         return distanceSums;
     }
