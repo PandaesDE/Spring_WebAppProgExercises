@@ -32,6 +32,11 @@ public class Station{
         return Collections.min(getAllDistancePaths(new ArrayList<String>(), 0));
     }
 
+    public int getLongestPath()
+    {
+        return Collections.max(getAllDistancePaths(new ArrayList<>(), 0));
+    }
+
     public List<Integer> getAllDistancePaths(List<String> visitedPlaces, int baseDistance)
     {
         boolean reachedEnd = true;

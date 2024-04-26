@@ -8,7 +8,7 @@ import java.util.List;
 
 public class All_in_a_Single_Night extends AOCExercise {
 
-    private List<Station> stations = new ArrayList<>();
+    private List<Station> stations;
     @Override
     public String answer1() {
         initializeValues();
@@ -18,7 +18,18 @@ public class All_in_a_Single_Night extends AOCExercise {
     @Override
     public String answer2() {
         initializeValues();
-        return null;
+        return "" + calculateLongestDistance();
+    }
+
+    private int calculateLongestDistance()
+    {
+        int max = -Integer.MAX_VALUE;
+        for (Station s : stations)
+        {
+            int newDist = s.getLongestPath();
+            if (newDist > max) max = newDist;
+        }
+        return max;
     }
 
     private int calculateShortestDistance()
@@ -34,6 +45,7 @@ public class All_in_a_Single_Night extends AOCExercise {
 
     private void initializeValues()
     {
+        stations = new ArrayList<>();
         List<String> lines = Conveniencer.convertTextToLines(input);
         lines.forEach(line -> {
             List<String> tokenizedLine = Conveniencer.tokenizeString(line);

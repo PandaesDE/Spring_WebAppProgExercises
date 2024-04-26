@@ -10,228 +10,237 @@ import com.AdventOfCode.Year_2015.Day_07.Some_Assembly_Required;
 import com.AdventOfCode.Year_2015.Day_08.Matchsticks;
 import com.AdventOfCode.Year_2015.Day_09.All_in_a_Single_Night;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class Year2015Tests {
 
-    @Test
-    void day1_part1() {
-        AOCExercise d1 = new Not_Quite_Lisp();
-
-        d1.input = "(())";
-        Assertions.assertThat(d1.answer1()).isEqualTo("0");
-
-        d1.input = "()()";
-        Assertions.assertThat(d1.answer1()).isEqualTo("0");
-
-        d1.input = "(((";
-        Assertions.assertThat(d1.answer1()).isEqualTo("3");
-
-        d1.input = "(()(()(";
-        Assertions.assertThat(d1.answer1()).isEqualTo("3");
-
-        d1.input = "))(((((";
-        Assertions.assertThat(d1.answer1()).isEqualTo("3");
-
-        d1.input = "())";
-        Assertions.assertThat(d1.answer1()).isEqualTo("-1");
-
-        d1.input = "))(";
-        Assertions.assertThat(d1.answer1()).isEqualTo("-1");
-
-        d1.input = ")))";
-        Assertions.assertThat(d1.answer1()).isEqualTo("-3");
-
-        d1.input = ")())())";
-        Assertions.assertThat(d1.answer1()).isEqualTo("-3");
-    }
-
-    @Test
-    void day1_part2() {
+    @Nested
+    class day01
+    {
         AOCExercise ex = new Not_Quite_Lisp();
 
-        ex.input = ")";
-        Assertions.assertThat(ex.answer2()).isEqualTo("1");
+        @Test
+        void day1_part1() {
+            ex.input = "(())";
+            Assertions.assertThat(ex.answer1()).isEqualTo("0");
 
-        ex.input = "()())";
-        Assertions.assertThat(ex.answer2()).isEqualTo("5");
+            ex.input = "()()";
+            Assertions.assertThat(ex.answer1()).isEqualTo("0");
+
+            ex.input = "(((";
+            Assertions.assertThat(ex.answer1()).isEqualTo("3");
+
+            ex.input = "(()(()(";
+            Assertions.assertThat(ex.answer1()).isEqualTo("3");
+
+            ex.input = "))(((((";
+            Assertions.assertThat(ex.answer1()).isEqualTo("3");
+
+            ex.input = "())";
+            Assertions.assertThat(ex.answer1()).isEqualTo("-1");
+
+            ex.input = "))(";
+            Assertions.assertThat(ex.answer1()).isEqualTo("-1");
+
+            ex.input = ")))";
+            Assertions.assertThat(ex.answer1()).isEqualTo("-3");
+
+            ex.input = ")())())";
+            Assertions.assertThat(ex.answer1()).isEqualTo("-3");
+        }
+
+        @Test
+        void part2() {
+            ex.input = ")";
+            Assertions.assertThat(ex.answer2()).isEqualTo("1");
+
+            ex.input = "()())";
+            Assertions.assertThat(ex.answer2()).isEqualTo("5");
+        }
     }
 
-    @Test
-    void day2_part1() {
+    @Nested
+    class day02
+    {
         AOCExercise ex = new I_Was_Told_There_Would_Be_No_Math();
+        String[] inputs = new String[] {
+            "2x3x4",
+            "1x1x10"
+        };
+        @Test
+        void day2_part1() {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("58");
 
-        ex.input = "2x3x4";
-        Assertions.assertThat(ex.answer1()).isEqualTo("58");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("43");
+        }
 
-        ex.input = "1x1x10";
-        Assertions.assertThat(ex.answer1()).isEqualTo("43");
+        @Test
+        void day2_part2() {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer2()).isEqualTo("34");
+
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("14");
+        }
     }
 
-    @Test
-    void day2_part2() {
-        AOCExercise ex = new I_Was_Told_There_Would_Be_No_Math();
-
-        ex.input = "2x3x4";
-        Assertions.assertThat(ex.answer2()).isEqualTo("34");
-
-        ex.input = "1x1x10";
-        Assertions.assertThat(ex.answer2()).isEqualTo("14");
-    }
-
-    @Test
-    void day3_part1() {
+    @Nested
+    class day03
+    {
         AOCExercise ex = new Perfectly_Spherical_Houses_in_a_Vacuum();
+        String[] inputs = new String[] {
+            ">",
+            "^>v<",
+            "^v^v^v^v^v",
+            "^v"
+        };
 
-        ex.input = ">";
-        Assertions.assertThat(ex.answer1()).isEqualTo("2");
+        @Test
+        void day3_part1() {
 
-        ex.input = "^>v<";
-        Assertions.assertThat(ex.answer1()).isEqualTo("4");
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
 
-        ex.input = "^v^v^v^v^v";
-        Assertions.assertThat(ex.answer1()).isEqualTo("2");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+
+            ex.input = inputs[2];
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+        }
+
+        @Test
+        void day3_part2() {
+
+            ex.input = inputs[3];
+            Assertions.assertThat(ex.answer2()).isEqualTo("3");
+
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("3");
+
+            ex.input = inputs[2];
+            Assertions.assertThat(ex.answer2()).isEqualTo("11");
+        }
     }
 
-    @Test
-    void day3_part2() {
-        AOCExercise ex = new Perfectly_Spherical_Houses_in_a_Vacuum();
-
-        ex.input = "^v";
-        Assertions.assertThat(ex.answer2()).isEqualTo("3");
-
-        ex.input = "^>v<";
-        Assertions.assertThat(ex.answer2()).isEqualTo("3");
-
-        ex.input = "^v^v^v^v^v";
-        Assertions.assertThat(ex.answer2()).isEqualTo("11");
-    }
-
-    @Test
-    void day4_part1() {
+    @Nested
+    class day04
+    {
         AOCExercise ex = new The_Ideal_Stocking_Stuffer();
 
-        ex.input = "abcdef";
-        Assertions.assertThat(ex.answer1()).isEqualTo("609043");
+        @Test
+        void day4_part1() {
+            ex.input = "abcdef";
+            Assertions.assertThat(ex.answer1()).isEqualTo("609043");
 
-        ex.input = "pqrstuv";
-        Assertions.assertThat(ex.answer1()).isEqualTo("1048970");
+            ex.input = "pqrstuv";
+            Assertions.assertThat(ex.answer1()).isEqualTo("1048970");
+        }
+
+        @Test
+        void day4_part2() {
+            ex.input = "ckczppom";
+            Assertions.assertThat(ex.answer2()).isEqualTo("3938038");
+        }
     }
 
-    @Test
-    void day4_part2() {
-        AOCExercise ex = new The_Ideal_Stocking_Stuffer();
-
-        ex.input = "ckczppom";
-        Assertions.assertThat(ex.answer2()).isEqualTo("3938038");
-    }
-
-    @Test
-    void day5_part1() {
+    @Nested
+    class day05
+    {
         AOCExercise ex = new Doesnt_He_Have_Intern_Elves_For_This();
 
-        ex.input = "ugknbfddgicrmopn";
-        Assertions.assertThat(ex.answer1()).isEqualTo("1");
+        @Test
+        void day5_part1() {
+            ex.input = "ugknbfddgicrmopn";
+            Assertions.assertThat(ex.answer1()).isEqualTo("1");
 
-        ex.input = "aaa";
-        Assertions.assertThat(ex.answer1()).isEqualTo("1");
+            ex.input = "aaa";
+            Assertions.assertThat(ex.answer1()).isEqualTo("1");
 
-        ex.input = "jchzalrnumimnmhp";
-        Assertions.assertThat(ex.answer1()).isEqualTo("0");
+            ex.input = "jchzalrnumimnmhp";
+            Assertions.assertThat(ex.answer1()).isEqualTo("0");
 
-        ex.input = "haegwjzuvuyypxyu";
-        Assertions.assertThat(ex.answer1()).isEqualTo("0");
+            ex.input = "haegwjzuvuyypxyu";
+            Assertions.assertThat(ex.answer1()).isEqualTo("0");
 
-        ex.input = "dvszwmarrgswjxmb";
-        Assertions.assertThat(ex.answer1()).isEqualTo("0");
+            ex.input = "dvszwmarrgswjxmb";
+            Assertions.assertThat(ex.answer1()).isEqualTo("0");
+        }
+
+        @Test
+        void day5_part2() {
+            ex.input = "qjhvhtzxzqqjkmpb";
+            Assertions.assertThat(ex.answer2()).isEqualTo("1");
+
+            ex.input = "xxyxx";
+            Assertions.assertThat(ex.answer2()).isEqualTo("1");
+
+            ex.input = "uurcxstgmygtbstg";
+            Assertions.assertThat(ex.answer2()).isEqualTo("0");
+
+            ex.input = "ieodomkazucvgmuy";
+            Assertions.assertThat(ex.answer2()).isEqualTo("0");
+        }
     }
 
-    @Test
-    void day5_part2() {
-        AOCExercise ex = new Doesnt_He_Have_Intern_Elves_For_This();
-
-        ex.input = "qjhvhtzxzqqjkmpb";
-        Assertions.assertThat(ex.answer2()).isEqualTo("1");
-
-        ex.input = "xxyxx";
-        Assertions.assertThat(ex.answer2()).isEqualTo("1");
-
-        ex.input = "uurcxstgmygtbstg";
-        Assertions.assertThat(ex.answer2()).isEqualTo("0");
-
-        ex.input = "ieodomkazucvgmuy";
-        Assertions.assertThat(ex.answer2()).isEqualTo("0");
-    }
-
-    @Test
-    void day6_part1() {
+    @Nested
+    class day06
+    {
         AOCExercise ex = new Probably_a_Fire_Hazard();
+        String[] inputs = new String[]{
+            //0
+            "turn on 0,0 through 999,999",
+            //1
+            "turn on 0,0 through 999,0",
+            //2
+            "turn on 0,0 through 999,999\n" +
+            "turn off 499,499 through 500,500",
+            //3
+            "turn on 0,0 through 0,0",
+            //4
+            "toggle 0,0 through 999,999"
+        };
+        @Test
+        void day6_part1() {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("1000000");
 
-        ex.input = "turn on 0,0 through 999,999";
-        Assertions.assertThat(ex.answer1()).isEqualTo("1000000");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("1000");
 
-        ex.input = "turn on 0,0 through 999,0";
-        Assertions.assertThat(ex.answer1()).isEqualTo("1000");
+            ex.input = inputs[2];
+            Assertions.assertThat(ex.answer1()).isEqualTo("999996");
+        }
 
-        ex.input = "turn on 0,0 through 999,999\n" +
-                "turn off 499,499 through 500,500";
-        Assertions.assertThat(ex.answer1()).isEqualTo("999996");
+        @Test
+        void day6_part2() {
+
+            ex.input = inputs[3];
+            Assertions.assertThat(ex.answer2()).isEqualTo("1");
+
+            ex.input = inputs[4];
+            Assertions.assertThat(ex.answer2()).isEqualTo("2000000");
+        }
     }
 
-    @Test
-    void day6_part2() {
-        AOCExercise ex = new Probably_a_Fire_Hazard();
-
-        ex.input = "turn on 0,0 through 0,0";
-        Assertions.assertThat(ex.answer2()).isEqualTo("1");
-
-        ex.input = "toggle 0,0 through 999,999";
-        Assertions.assertThat(ex.answer2()).isEqualTo("2000000");
-    }
-
-    @Test
-    void day7_part1() {
+    @Nested
+    class day07
+    {
         AOCExercise ex = new Some_Assembly_Required();
-
-        ex.input = "123 -> x\n" +
+        String[] inputs = new String[] {
+                //0
+                "123 -> x\n" +
                 "456 -> y\n" +
                 "x AND y -> d\n" +
                 "x OR y -> e\n" +
                 "x LSHIFT 2 -> f\n" +
                 "y RSHIFT 2 -> g\n" +
                 "NOT x -> h\n" +
-                "NOT y -> i";
-
-        ex.args = new String[] {"d"};
-        Assertions.assertThat(ex.answer1()).isEqualTo("72");
-
-        ex.args[0] = "e";
-        Assertions.assertThat(ex.answer1()).isEqualTo("507");
-
-        ex.args[0] = "f";
-        Assertions.assertThat(ex.answer1()).isEqualTo("492");
-
-        ex.args[0] = "g";
-        Assertions.assertThat(ex.answer1()).isEqualTo("114");
-
-        ex.args[0] = "h";
-        Assertions.assertThat(ex.answer1()).isEqualTo("65412");
-
-        ex.args[0] = "i";
-        Assertions.assertThat(ex.answer1()).isEqualTo("65079");
-
-        ex.args[0] = "x";
-        Assertions.assertThat(ex.answer1()).isEqualTo("123");
-
-        ex.args[0] = "y";
-        Assertions.assertThat(ex.answer1()).isEqualTo("456");
-    }
-
-    @Test
-    void day7_part2() {
-        AOCExercise ex = new Some_Assembly_Required();
-
-        ex.input = "NOT dq -> dr\n" +
+                "NOT y -> i",
+                //1
+                "NOT dq -> dr\n" +
                 "kg OR kf -> kh\n" +
                 "ep OR eo -> eq\n" +
                 "44430 -> b\n" +
@@ -569,69 +578,114 @@ public class Year2015Tests {
                 "NOT hj -> hk\n" +
                 "gj RSHIFT 3 -> gl\n" +
                 "fo RSHIFT 3 -> fq\n" +
-                "he RSHIFT 2 -> hf";
+                "he RSHIFT 2 -> hf"
+        };
 
-        Assertions.assertThat(ex.answer2()).isEqualTo("14710");
+        @Test
+        void day7_part1() {
+            ex.input = inputs[0];
+
+            ex.args = new String[] {"d"};
+            Assertions.assertThat(ex.answer1()).isEqualTo("72");
+
+            ex.args[0] = "e";
+            Assertions.assertThat(ex.answer1()).isEqualTo("507");
+
+            ex.args[0] = "f";
+            Assertions.assertThat(ex.answer1()).isEqualTo("492");
+
+            ex.args[0] = "g";
+            Assertions.assertThat(ex.answer1()).isEqualTo("114");
+
+            ex.args[0] = "h";
+            Assertions.assertThat(ex.answer1()).isEqualTo("65412");
+
+            ex.args[0] = "i";
+            Assertions.assertThat(ex.answer1()).isEqualTo("65079");
+
+            ex.args[0] = "x";
+            Assertions.assertThat(ex.answer1()).isEqualTo("123");
+
+            ex.args[0] = "y";
+            Assertions.assertThat(ex.answer1()).isEqualTo("456");
+        }
+
+        @Test
+        void day7_part2() {
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("14710");
+        }
     }
 
 
-    @Test
-    void day8_part1() {
+
+    @Nested
+    class day08
+    {
         AOCExercise ex = new Matchsticks();
+        String[] inputs = new String[]{
+                "\"\"",
+                "\"abc\"",
+                "\"aaa\\\"aaa\"",
+                "\"\\x27\"",
 
-        ex.input = "\"\"";
-        Assertions.assertThat(ex.answer1()).isEqualTo("2");
-
-        ex.input = "\"abc\"";
-        Assertions.assertThat(ex.answer1()).isEqualTo("2");
-
-        ex.input = "\"aaa\\\"aaa\"";
-        Assertions.assertThat(ex.answer1()).isEqualTo("3");
-
-        ex.input = "\"\\x27\"";
-        Assertions.assertThat(ex.answer1()).isEqualTo("5");
-
-        ex.input =  "\"\"\n" +
-                    "\"abc\"\n" +
-                    "\"aaa\\\"aaa\"\n" +
-                    "\"\\x27\"";
-        Assertions.assertThat(ex.answer1()).isEqualTo("12");
-    }
-
-    @Test
-    void day8_part2() {
-        AOCExercise ex = new Matchsticks();
-
-        ex.input = "\"\"";
-        Assertions.assertThat(ex.answer2()).isEqualTo("4");
-
-        ex.input = "\"abc\"";
-        Assertions.assertThat(ex.answer2()).isEqualTo("4");
-
-        ex.input = "\"aaa\\\"aaa\"";
-        Assertions.assertThat(ex.answer2()).isEqualTo("6");
-
-        ex.input = "\"\\x27\"";
-        Assertions.assertThat(ex.answer2()).isEqualTo("5");
-
-        ex.input =  "\"\"\n" +
+                "\"\"\n" +
                 "\"abc\"\n" +
                 "\"aaa\\\"aaa\"\n" +
-                "\"\\x27\"";
-        Assertions.assertThat(ex.answer2()).isEqualTo("19");
+                "\"\\x27\""
+        };
+
+        @Test
+        void day8_part1() {
+
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+
+            ex.input = inputs[2];
+            Assertions.assertThat(ex.answer1()).isEqualTo("3");
+
+            ex.input = inputs[3];
+            Assertions.assertThat(ex.answer1()).isEqualTo("5");
+
+            ex.input = inputs[4];
+            Assertions.assertThat(ex.answer1()).isEqualTo("12");
+        }
+
+        @Test
+        void day8_part2()
+        {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer2()).isEqualTo("4");
+
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("4");
+
+            ex.input = inputs[2];
+            Assertions.assertThat(ex.answer2()).isEqualTo("6");
+
+            ex.input = inputs[3];
+            Assertions.assertThat(ex.answer2()).isEqualTo("5");
+
+            ex.input = inputs[4];
+            Assertions.assertThat(ex.answer2()).isEqualTo("19");
+        }
     }
 
-    @Test
-    void day9_part1() {
+
+    @Nested
+    class day09
+    {
         AOCExercise ex = new All_in_a_Single_Night();
-
-        ex.input = "London to Dublin = 464\n" +
-        "London to Belfast = 518\n" +
-        "Dublin to Belfast = 141";
-
-        Assertions.assertThat(ex.answer1()).isEqualTo("605");
-
-        ex.input = "Tristram to AlphaCentauri = 34\n" +
+        String[] inputs = new String[] {
+                //0
+                "London to Dublin = 464\n" +
+                "London to Belfast = 518\n" +
+                "Dublin to Belfast = 141",
+                //1
+                "Tristram to AlphaCentauri = 34\n" +
                 "Tristram to Snowdin = 100\n" +
                 "Tristram to Tambi = 63\n" +
                 "Tristram to Faerun = 108\n" +
@@ -658,9 +712,27 @@ public class Year2015Tests {
                 "Faerun to Arbre = 144\n" +
                 "Norrath to Straylight = 115\n" +
                 "Norrath to Arbre = 135\n" +
-                "Straylight to Arbre = 127";
+                "Straylight to Arbre = 127"
+        };
 
+        @Test
+        void part01()
+        {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("605");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("251");
+        }
 
-        Assertions.assertThat(ex.answer1()).isEqualTo("251");
+        @Test
+        void day9_part2()
+        {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer2()).isEqualTo("982");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("898");
+        }
     }
+
+
 }
