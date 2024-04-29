@@ -10,6 +10,7 @@ import com.AdventOfCode.Year_2015.Day_07.Some_Assembly_Required;
 import com.AdventOfCode.Year_2015.Day_08.Matchsticks;
 import com.AdventOfCode.Year_2015.Day_09.All_in_a_Single_Night;
 import com.AdventOfCode.Year_2015.Day_10.Elves_look_Elves_Say;
+import com.AdventOfCode.Year_2015.Day_11.Corporate_Policy;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -770,6 +771,29 @@ public class Year2015Tests {
             ex.setArgs(new String[] {"50"});
             ex.input = "1113122113";
             Assertions.assertThat(ex.answer2()).isEqualTo("5103798");
+        }
+    }
+
+    @Nested
+    class day11
+    {
+        AOCExercise ex = new Corporate_Policy();
+        @Test
+        void part1()
+        {
+            ex.input = "abcdefgh";
+            Assertions.assertThat(ex.answer1()).isEqualTo("abcdffaa");
+            ex.input = "ghijklmn";
+            Assertions.assertThat(ex.answer1()).isEqualTo("ghjaabcc");
+            ex.input = "vzbxkghb";
+            Assertions.assertThat(ex.answer1()).isEqualTo("vzbxxyzz");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.input = "vzbxkghb";
+            Assertions.assertThat(ex.answer2()).isEqualTo("vzcaabcc");
         }
     }
 }
