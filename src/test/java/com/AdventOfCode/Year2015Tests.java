@@ -12,6 +12,7 @@ import com.AdventOfCode.Year_2015.Day_09.All_in_a_Single_Night;
 import com.AdventOfCode.Year_2015.Day_10.Elves_look_Elves_Say;
 import com.AdventOfCode.Year_2015.Day_11.Corporate_Policy;
 import com.AdventOfCode.Year_2015.Day_12.JSAbacusFrameworkIO;
+import com.AdventOfCode.Year_2015.Day_13.Knights_of_the_Dinner_Table;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -871,6 +872,99 @@ public class Year2015Tests {
             Assertions.assertThat(ex.answer2()).isEqualTo("0");
             ex.input = inputs[11];
             Assertions.assertThat(ex.answer2()).isEqualTo("6");
+        }
+    }
+
+    @Nested
+    class day13
+    {
+        AOCExercise ex = new Knights_of_the_Dinner_Table();
+        String[] inputs = new String[] {
+            //0
+            "Alice would gain 54 happiness units by sitting next to Bob.\n" +
+            "Alice would lose 79 happiness units by sitting next to Carol.\n" +
+            "Alice would lose 2 happiness units by sitting next to David.\n" +
+            "Bob would gain 83 happiness units by sitting next to Alice.\n" +
+            "Bob would lose 7 happiness units by sitting next to Carol.\n" +
+            "Bob would lose 63 happiness units by sitting next to David.\n" +
+            "Carol would lose 62 happiness units by sitting next to Alice.\n" +
+            "Carol would gain 60 happiness units by sitting next to Bob.\n" +
+            "Carol would gain 55 happiness units by sitting next to David.\n" +
+            "David would gain 46 happiness units by sitting next to Alice.\n" +
+            "David would lose 7 happiness units by sitting next to Bob.\n" +
+            "David would gain 41 happiness units by sitting next to Carol.",
+            //1
+            "Alice would lose 57 happiness units by sitting next to Bob.\n" +
+            "Alice would lose 62 happiness units by sitting next to Carol.\n" +
+            "Alice would lose 75 happiness units by sitting next to David.\n" +
+            "Alice would gain 71 happiness units by sitting next to Eric.\n" +
+            "Alice would lose 22 happiness units by sitting next to Frank.\n" +
+            "Alice would lose 23 happiness units by sitting next to George.\n" +
+            "Alice would lose 76 happiness units by sitting next to Mallory.\n" +
+            "Bob would lose 14 happiness units by sitting next to Alice.\n" +
+            "Bob would gain 48 happiness units by sitting next to Carol.\n" +
+            "Bob would gain 89 happiness units by sitting next to David.\n" +
+            "Bob would gain 86 happiness units by sitting next to Eric.\n" +
+            "Bob would lose 2 happiness units by sitting next to Frank.\n" +
+            "Bob would gain 27 happiness units by sitting next to George.\n" +
+            "Bob would gain 19 happiness units by sitting next to Mallory.\n" +
+            "Carol would gain 37 happiness units by sitting next to Alice.\n" +
+            "Carol would gain 45 happiness units by sitting next to Bob.\n" +
+            "Carol would gain 24 happiness units by sitting next to David.\n" +
+            "Carol would gain 5 happiness units by sitting next to Eric.\n" +
+            "Carol would lose 68 happiness units by sitting next to Frank.\n" +
+            "Carol would lose 25 happiness units by sitting next to George.\n" +
+            "Carol would gain 30 happiness units by sitting next to Mallory.\n" +
+            "David would lose 51 happiness units by sitting next to Alice.\n" +
+            "David would gain 34 happiness units by sitting next to Bob.\n" +
+            "David would gain 99 happiness units by sitting next to Carol.\n" +
+            "David would gain 91 happiness units by sitting next to Eric.\n" +
+            "David would lose 38 happiness units by sitting next to Frank.\n" +
+            "David would gain 60 happiness units by sitting next to George.\n" +
+            "David would lose 63 happiness units by sitting next to Mallory.\n" +
+            "Eric would gain 23 happiness units by sitting next to Alice.\n" +
+            "Eric would lose 69 happiness units by sitting next to Bob.\n" +
+            "Eric would lose 33 happiness units by sitting next to Carol.\n" +
+            "Eric would lose 47 happiness units by sitting next to David.\n" +
+            "Eric would gain 75 happiness units by sitting next to Frank.\n" +
+            "Eric would gain 82 happiness units by sitting next to George.\n" +
+            "Eric would gain 13 happiness units by sitting next to Mallory.\n" +
+            "Frank would gain 77 happiness units by sitting next to Alice.\n" +
+            "Frank would gain 27 happiness units by sitting next to Bob.\n" +
+            "Frank would lose 87 happiness units by sitting next to Carol.\n" +
+            "Frank would gain 74 happiness units by sitting next to David.\n" +
+            "Frank would lose 41 happiness units by sitting next to Eric.\n" +
+            "Frank would lose 99 happiness units by sitting next to George.\n" +
+            "Frank would gain 26 happiness units by sitting next to Mallory.\n" +
+            "George would lose 63 happiness units by sitting next to Alice.\n" +
+            "George would lose 51 happiness units by sitting next to Bob.\n" +
+            "George would lose 60 happiness units by sitting next to Carol.\n" +
+            "George would gain 30 happiness units by sitting next to David.\n" +
+            "George would lose 100 happiness units by sitting next to Eric.\n" +
+            "George would lose 63 happiness units by sitting next to Frank.\n" +
+            "George would gain 57 happiness units by sitting next to Mallory.\n" +
+            "Mallory would lose 71 happiness units by sitting next to Alice.\n" +
+            "Mallory would lose 28 happiness units by sitting next to Bob.\n" +
+            "Mallory would lose 10 happiness units by sitting next to Carol.\n" +
+            "Mallory would gain 44 happiness units by sitting next to David.\n" +
+            "Mallory would gain 22 happiness units by sitting next to Eric.\n" +
+            "Mallory would gain 79 happiness units by sitting next to Frank.\n" +
+            "Mallory would lose 16 happiness units by sitting next to George."
+        };
+
+        @Test
+        void part1()
+        {
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("330");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("330");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.answer2();
         }
     }
 }

@@ -39,33 +39,48 @@ public class JSAbacusFrameworkIO extends AOCExercise {
         int sum = 0;
         if (node.isArray())
         {
-            for (JsonNode element : node) {
-                sum += processNode(element, ignoreInObject); // No key for array elements
-            }
+            sum += processArrayNode(node, ignoreInObject);
         } else if (node.isObject())
         {
-            if (ignoreInObject != null)
-                for (Iterator<Map.Entry<String, JsonNode>> it = node.fields(); it.hasNext();) {
-                    Map.Entry<String, JsonNode> entry = it.next();
-                    if (entry.getValue().isValueNode() && entry.getValue().asText().equals(ignoreInObject))
-                    {
-                        return 0;
-                    }
-                }
-
-
-            for (Iterator<Map.Entry<String, JsonNode>> it = node.fields(); it.hasNext();) {
-                Map.Entry<String, JsonNode> entry = it.next();
-                JsonNode valueNode = entry.getValue();
-                // Handle key and value based on their types
-                sum += processNode(valueNode, ignoreInObject);
-            }
+            sum += processObjectNode(node, ignoreInObject);
         } else if (node.isValueNode())
         {
             if (node.isNumber())
             {
                 sum += node.asInt();
             }
+        }
+
+        return sum;
+    }
+
+    private int processArrayNode(JsonNode node, String ignoreInObject)
+    {
+        int sum = 0;
+        for (JsonNode element : node) {
+            sum += processNode(element, ignoreInObject); // No key for array elements
+        }
+        return sum;
+    }
+
+    private int processObjectNode(JsonNode node, String ignoreInObject)
+    {
+        int sum = 0;
+        if (ignoreInObject != null)
+            for (Iterator<Map.Entry<String, JsonNode>> it = node.fields(); it.hasNext();) {
+                Map.Entry<String, JsonNode> entry = it.next();
+                if (entry.getValue().isValueNode() && entry.getValue().asText().equals(ignoreInObject))
+                {
+                    return 0;
+                }
+            }
+
+
+        for (Iterator<Map.Entry<String, JsonNode>> it = node.fields(); it.hasNext();) {
+            Map.Entry<String, JsonNode> entry = it.next();
+            JsonNode valueNode = entry.getValue();
+            // Handle key and value based on their types
+            sum += processNode(valueNode, ignoreInObject);
         }
 
         return sum;
