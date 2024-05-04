@@ -18,7 +18,10 @@ public class Knights_of_the_Dinner_Table extends AOCExercise {
     @Override
     public String answer2() {
         initialize();
-        return null;
+        dinnerTable.addKnight(new Knight("Me"));
+        dinnerTable.doConfiguration();
+        dinnerTable.optimizeConfiguration();
+        return "" + dinnerTable.getScore();
     }
 
     private void initialize()
@@ -34,7 +37,7 @@ public class Knights_of_the_Dinner_Table extends AOCExercise {
             int sympathy = Conveniencer.stringToInt(tokenizedLine[3]);
 
             if (isSympathyNegative) sympathy = -sympathy;
-            dinnerTable.initializeKnight(knightName1, knightName2, sympathy);
+            dinnerTable.addKnight(new Knight(knightName1), new Knight(knightName2), sympathy);
         });
     }
 }

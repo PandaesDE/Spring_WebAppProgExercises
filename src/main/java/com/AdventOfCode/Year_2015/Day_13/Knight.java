@@ -64,8 +64,13 @@ public class Knight {
 
     public int getHappinessScore()
     {
-        int l = sympathyMap.get(leftNeighbor);
-        int r = sympathyMap.get(rightNeighbor);
+        int l = 0;
+        int r = 0;
+
+        if (sympathyMap.containsKey(leftNeighbor))
+            l = sympathyMap.get(leftNeighbor);
+        if (sympathyMap.containsKey(rightNeighbor))
+            r = sympathyMap.get(rightNeighbor);
 
         return l + r;
     }

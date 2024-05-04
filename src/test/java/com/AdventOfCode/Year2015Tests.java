@@ -964,7 +964,8 @@ public class Year2015Tests {
         @Test
         void part2()
         {
-            ex.answer2();
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("601");
         }
     }
 }

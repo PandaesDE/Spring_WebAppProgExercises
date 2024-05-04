@@ -10,19 +10,28 @@ public class DinnerTable {
     private List<Knight> allKnights = new ArrayList<>();
     private int bestScore = Integer.MIN_VALUE;
 
-    public void initializeKnight(String knightName1, String knightName2, int sympathy)
+    public void addKnight(Knight knight1, Knight knight2, int sympathyForSecond)
     {
-        Knight knight1 = new Knight(knightName1);
         if (allKnights.contains(knight1))
         {
             int index = allKnights.indexOf(knight1);
-            allKnights.get(index).addKnight(new Knight(knightName2), sympathy);
+            allKnights.get(index).addKnight(knight2, sympathyForSecond);
         }
         else
         {
-            knight1.addKnight(new Knight(knightName2), sympathy);
+            knight1.addKnight(knight2, sympathyForSecond);
             allKnights.add(knight1);
         }
+    }
+
+    public void addKnight(Knight knight)
+    {
+        //Adds ability to add Knight without sympathy -> default 0 Sympathy
+        int index = allKnights.indexOf(knight);
+        if (index < 0)
+            allKnights.add(knight);
+        else
+            allKnights.set(index, knight);
     }
 
     public void doConfiguration()
