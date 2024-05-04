@@ -62,7 +62,7 @@ public class Knight {
         return this.name;
     }
 
-    public int getHappynessScore()
+    public int getHappinessScore()
     {
         int l = sympathyMap.get(leftNeighbor);
         int r = sympathyMap.get(rightNeighbor);

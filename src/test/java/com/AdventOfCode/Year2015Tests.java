@@ -958,7 +958,7 @@ public class Year2015Tests {
             ex.input = inputs[0];
             Assertions.assertThat(ex.answer1()).isEqualTo("330");
             ex.input = inputs[1];
-            Assertions.assertThat(ex.answer1()).isEqualTo("330");
+            Assertions.assertThat(ex.answer1()).isEqualTo("618");
         }
 
         @Test

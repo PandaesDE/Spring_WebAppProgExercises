@@ -1,5 +1,7 @@
 package com.AdventOfCode.Year_2015.Day_13;
 
+import com.AdventOfCode.Conveniencer;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,30 +30,56 @@ public class DinnerTable {
         int size = allKnights.size();
         for (int index = 0; index < size; index++)
         {
-            Knight k = allKnights.get(index);
-
-            if (index == 0) k.setLeftNeighbor(allKnights.get(size - 1));
-            else k.setLeftNeighbor(allKnights.get(index - 1));
-
-            if (index == size - 1) k.setRightNeighborNeighbor(allKnights.get(0));
-            else k.setRightNeighborNeighbor(allKnights.get(index + 1));
+            setNeighbors(allKnights, index);
         }
     }
 
     public void optimizeConfiguration()
     {
-        int score = 0;
-
-        for (Knight k : allKnights)
+        Conveniencer.Permutations.of(allKnights).forEach(permutation ->
         {
-            score += k.getHappynessScore();
-        }
+            List<Knight> sittingConfiguration = permutation.toList();
+            setAllNeighbors(sittingConfiguration);
+            int score = calculateScore(sittingConfiguration);
 
-        if (score > bestScore) this.bestScore = score;
-
-        //Collections.swap(allKnights, 0, 7);
+            if (score > this.bestScore)
+            {
+                this.bestScore = score;
+                allKnights = sittingConfiguration;
+            }
+        });
     }
 
+    private void setAllNeighbors(List<Knight> knights)
+    {
+        for (int i = 0; i < knights.size(); i++)
+        {
+            setNeighbors(knights, i);
+        }
+    }
+
+    private void setNeighbors(List<Knight> knights, int index)
+    {
+        Knight k = knights.get(index);
+
+        if (index == 0) k.setLeftNeighbor(knights.get(knights.size() - 1));
+        else k.setLeftNeighbor(knights.get(index - 1));
+
+        if (index == knights.size() - 1) k.setRightNeighborNeighbor(knights.get(0));
+        else k.setRightNeighborNeighbor(knights.get(index + 1));
+    }
+
+    private int calculateScore(List<Knight> knights)
+    {
+        int score = 0;
+
+        for (Knight k : knights)
+        {
+            score += k.getHappinessScore();
+        }
+
+        return score;
+    }
 
     public int getScore()
     {
