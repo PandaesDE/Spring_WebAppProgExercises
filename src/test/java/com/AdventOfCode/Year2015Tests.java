@@ -13,6 +13,7 @@ import com.AdventOfCode.Year_2015.Day_10.Elves_look_Elves_Say;
 import com.AdventOfCode.Year_2015.Day_11.Corporate_Policy;
 import com.AdventOfCode.Year_2015.Day_12.JSAbacusFrameworkIO;
 import com.AdventOfCode.Year_2015.Day_13.Knights_of_the_Dinner_Table;
+import com.AdventOfCode.Year_2015.Day_14.Reindeer_Olympics;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -966,6 +967,78 @@ public class Year2015Tests {
         {
             ex.input = inputs[1];
             Assertions.assertThat(ex.answer2()).isEqualTo("601");
+        }
+    }
+
+    @Nested
+    class day14
+    {
+        AOCExercise ex = new Reindeer_Olympics();
+        String[] inputs = new String[] {
+            //0
+            "Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.\n" +
+            "Dancer can fly 16 km/s for 11 seconds, but then must rest for 162 seconds.",
+            //1
+            "Vixen can fly 8 km/s for 8 seconds, but then must rest for 53 seconds.\n" +
+            "Blitzen can fly 13 km/s for 4 seconds, but then must rest for 49 seconds.\n" +
+            "Rudolph can fly 20 km/s for 7 seconds, but then must rest for 132 seconds.\n" +
+            "Cupid can fly 12 km/s for 4 seconds, but then must rest for 43 seconds.\n" +
+            "Donner can fly 9 km/s for 5 seconds, but then must rest for 38 seconds.\n" +
+            "Dasher can fly 10 km/s for 4 seconds, but then must rest for 37 seconds.\n" +
+            "Comet can fly 3 km/s for 37 seconds, but then must rest for 76 seconds.\n" +
+            "Prancer can fly 9 km/s for 12 seconds, but then must rest for 97 seconds.\n" +
+            "Dancer can fly 37 km/s for 1 seconds, but then must rest for 36 seconds."
+        };
+        @Test
+        void part1()
+        {
+            ex.input = inputs[0];
+            String[] args = new String[1];
+
+            args[0] = "1";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer1()).isEqualTo("16");
+
+            args[0] = "10";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer1()).isEqualTo("160");
+
+            args[0] = "11";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer1()).isEqualTo("176");
+
+            args[0] = "1000";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer1()).isEqualTo("1120");
+
+            args[0] = "2503";
+            ex.input = inputs[1];
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer1()).isEqualTo("2655");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.input = inputs[0];
+            String[] args = new String[1];
+
+            args[0] = "1";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer2()).isEqualTo("1");
+
+            args[0] = "140";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer2()).isEqualTo("139");
+
+            args[0] = "1000";
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer2()).isEqualTo("689");
+
+            args[0] = "2503";
+            ex.input = inputs[1];
+            ex.setArgs(args);
+            Assertions.assertThat(ex.answer2()).isEqualTo("0");
         }
     }
 }

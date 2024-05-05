@@ -28,8 +28,7 @@ public class Knights_of_the_Dinner_Table extends AOCExercise {
     {
         dinnerTable = new DinnerTable();
         String input = this.input.replaceAll("\\.", "");
-        List<String> inputLines = Conveniencer.convertTextToLines(input);
-        inputLines.forEach(line -> {
+        Conveniencer.convertTextToLines(input).forEach(line -> {
             String[] tokenizedLine = line.split(" ");
             String knightName1 = tokenizedLine[0];
             String knightName2 = tokenizedLine[10];
