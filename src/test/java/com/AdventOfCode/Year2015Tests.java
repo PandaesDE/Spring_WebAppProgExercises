@@ -14,6 +14,7 @@ import com.AdventOfCode.Year_2015.Day_11.Corporate_Policy;
 import com.AdventOfCode.Year_2015.Day_12.JSAbacusFrameworkIO;
 import com.AdventOfCode.Year_2015.Day_13.Knights_of_the_Dinner_Table;
 import com.AdventOfCode.Year_2015.Day_14.Reindeer_Olympics;
+import com.AdventOfCode.Year_2015.Day_15.Science_for_Hungry_People;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -1038,7 +1039,47 @@ public class Year2015Tests {
             args[0] = "2503";
             ex.input = inputs[1];
             ex.setArgs(args);
-            Assertions.assertThat(ex.answer2()).isEqualTo("0");
+            Assertions.assertThat(ex.answer2()).isEqualTo("1059");
+        }
+    }
+
+    @Nested
+    class day15
+    {
+        AOCExercise ex = new Science_for_Hungry_People();
+        String[] inputs = new String[] {
+            //0
+            "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8\n" +
+            "Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3",
+            //1
+            "Sugar: capacity 3, durability 0, flavor 0, texture -3, calories 2\n" +
+            "Sprinkles: capacity -3, durability 3, flavor 0, texture 0, calories 9\n" +
+            "Candy: capacity -1, durability 0, flavor 4, texture 0, calories 1\n" +
+            "Chocolate: capacity 0, durability 0, flavor -2, texture 2, calories 8"
+        };
+
+        @Test
+        void part1()
+        {
+            String[] args = new String[] {"100"};
+            ex.setArgs(args);
+
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer1()).isEqualTo("62842880");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer1()).isEqualTo("222870");
+        }
+
+        @Test
+        void part2()
+        {
+            String[] args = new String[] {"100", "500"};
+            ex.setArgs(args);
+
+            ex.input = inputs[0];
+            Assertions.assertThat(ex.answer2()).isEqualTo("57600000");
+            ex.input = inputs[1];
+            Assertions.assertThat(ex.answer2()).isEqualTo("117936");
         }
     }
 }

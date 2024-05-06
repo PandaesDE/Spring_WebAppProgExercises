@@ -3,8 +3,6 @@ package com.AdventOfCode.Year_2015.Day_13;
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-import java.util.List;
-
 public class Knights_of_the_Dinner_Table extends AOCExercise {
     DinnerTable dinnerTable;
     @Override
