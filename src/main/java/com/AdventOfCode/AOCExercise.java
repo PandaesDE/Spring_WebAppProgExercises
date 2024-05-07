@@ -13,6 +13,16 @@ public abstract class AOCExercise {
     public void setArgs(String[] args) {
         this.args = args;
     }
+    public void setArg(String arg, int index)
+    {
+        if (this.args == null) this.args = new String[index + 1];
+        if (this.args.length <= index) {
+            String[] old = this.args;
+            this.args = new String[index + 1];
+            System.arraycopy(old, 0, this.args, 0, old.length);
+        }
+        this.args[index] = arg;
+    }
 
     public String[] getArgs() { return this.args;}
 

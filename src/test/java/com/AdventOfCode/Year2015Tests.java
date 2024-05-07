@@ -16,6 +16,7 @@ import com.AdventOfCode.Year_2015.Day_13.Knights_of_the_Dinner_Table;
 import com.AdventOfCode.Year_2015.Day_14.Reindeer_Olympics;
 import com.AdventOfCode.Year_2015.Day_15.Science_for_Hungry_People;
 import com.AdventOfCode.Year_2015.Day_16.Aunt_Sue;
+import com.AdventOfCode.Year_2015.Day_17.No_Such_Thing_as_Too_Much;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -1620,4 +1621,62 @@ public class Year2015Tests {
         }
     }
 
+    @Nested
+    class day17
+    {
+        AOCExercise ex = new No_Such_Thing_as_Too_Much();
+        String[] inputs = new String[] {
+            //0
+            "20\n" +
+            "15\n" +
+            "10\n" +
+            "5\n" +
+            "5",
+            //1
+            "50\n" +
+            "44\n" +
+            "11\n" +
+            "49\n" +
+            "42\n" +
+            "46\n" +
+            "18\n" +
+            "32\n" +
+            "26\n" +
+            "40\n" +
+            "21\n" +
+            "7\n" +
+            "18\n" +
+            "43\n" +
+            "10\n" +
+            "47\n" +
+            "36\n" +
+            "24\n" +
+            "22\n" +
+            "40"
+        };
+
+        @Test
+        void part1()
+        {
+            ex.input = inputs[0];
+            ex.setArg("25", 0);
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+
+            ex.input = inputs[1];
+            ex.setArg("150", 0);
+            Assertions.assertThat(ex.answer1()).isEqualTo("654");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.input = inputs[0];
+            ex.setArg("25", 0);
+            Assertions.assertThat(ex.answer2()).isEqualTo("3");
+
+            ex.input = inputs[1];
+            ex.setArg("150", 0);
+            Assertions.assertThat(ex.answer2()).isEqualTo("0");
+        }
+    }
 }
