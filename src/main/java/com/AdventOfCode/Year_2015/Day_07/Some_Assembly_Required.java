@@ -20,6 +20,8 @@ public class Some_Assembly_Required extends AOCExercise {
     public String answer1() {
         if (this.args == null || this.args.length < 1) this.args = new String[] {"a"};
 
+        WireCache.reset();
+
         List<String> operations = Conveniencer.convertTextToLines(input);
         wireConnections = new HashMap<>();
         initializeWireConnections(operations);
@@ -29,10 +31,12 @@ public class Some_Assembly_Required extends AOCExercise {
 
     @Override
     public String answer2() {
-        if (this.args == null || this.args.length < 1)
+        if (this.args == null || this.args.length < 2)
         {
             this.args = new String[] {"a", "b"};
         }
+
+        WireCache.reset();
 
         List<String> operations = Conveniencer.convertTextToLines(input);
         wireConnections = new HashMap<>();
@@ -40,6 +44,7 @@ public class Some_Assembly_Required extends AOCExercise {
 
         addWireConnection(args[1], new String[] {answer1()}, "EQUALS");
         WireCache.reset();
+
 
         return "" +getWireValue(new Wire(args[0]));
     }

@@ -594,34 +594,35 @@ public class Year2015Tests {
         void part1() {
             ex.input = inputs[0];
 
-            ex.args = new String[] {"d"};
+            ex.setArg("d",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("72");
 
-            ex.args[0] = "e";
+            ex.setArg("e",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("507");
 
-            ex.args[0] = "f";
+            ex.setArg("f",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("492");
 
-            ex.args[0] = "g";
+            ex.setArg("g",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("114");
 
-            ex.args[0] = "h";
+            ex.setArg("h",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("65412");
 
-            ex.args[0] = "i";
+            ex.setArg("i",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("65079");
 
-            ex.args[0] = "x";
+            ex.setArg("x",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("123");
 
-            ex.args[0] = "y";
+            ex.setArg("y",0);
             Assertions.assertThat(ex.answer1()).isEqualTo("456");
         }
 
         @Test
         void part2() {
             ex.input = inputs[1];
+            ex.setArgs(new String[] {"a", "b"});
             Assertions.assertThat(ex.answer2()).isEqualTo("14710");
         }
     }
