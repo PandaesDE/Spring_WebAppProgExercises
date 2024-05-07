@@ -27,8 +27,7 @@ public class Science_for_Hungry_People extends AOCExercise {
     private void init()
     {
         ingredients = new ArrayList<>();
-        String input = this.input.replaceAll(",", "");
-        input = input.replaceAll(":", "");
+        String input = this.input.replaceAll("[,:]", "");
 
         Conveniencer.convertTextToLines(input).forEach(line ->
         {
