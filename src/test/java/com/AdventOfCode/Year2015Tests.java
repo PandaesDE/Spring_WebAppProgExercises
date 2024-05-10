@@ -18,6 +18,7 @@ import com.AdventOfCode.Year_2015.Day_15.Science_for_Hungry_People;
 import com.AdventOfCode.Year_2015.Day_16.Aunt_Sue;
 import com.AdventOfCode.Year_2015.Day_17.No_Such_Thing_as_Too_Much;
 import com.AdventOfCode.Year_2015.Day_18.Like_a_GIF_For_Your_Yard;
+import com.AdventOfCode.Year_2015.Day_19.Medicine_for_Rudolph;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -1819,6 +1820,108 @@ public class Year2015Tests {
             ex.input = inputs[1];
             ex.setArg("100", 0);
             Assertions.assertThat(ex.answer2()).isEqualTo("1006");
+        }
+    }
+
+    @Nested
+    class day19
+    {
+        private AOCExercise ex = new Medicine_for_Rudolph();
+        String[] inputs = new String[] {
+            //0
+            "HOH",
+            //1
+            "HOHOHO",
+            //2
+            "CRnSiRnCaPTiMgYCaPTiRnFArSiThFArCaSiThSiThPBCaCaSiRnSiRnTiTiMgArPBCaPMgYPTiRnFArFArCaSiRnBPMgArPRnCaPTiRnFArCaSiThCaCaFArPBCaCaPTiTiRnFArCaSiRnSiAlYSiThRnFArArCaSiRnBFArCaCaSiRnSiThCaCaCaFYCaPTiBCaSiThCaSiThPMgArSiRnCaPBFYCaCaFArCaCaCaCaSiThCaSiRnPRnFArPBSiThPRnFArSiRnMgArCaFYFArCaSiRnSiAlArTiTiTiTiTiTiTiRnPMgArPTiTiTiBSiRnSiAlArTiTiRnPMgArCaFYBPBPTiRnSiRnMgArSiThCaFArCaSiThFArPRnFArCaSiRnTiBSiThSiRnSiAlYCaFArPRnFArSiThCaFArCaCaSiThCaCaCaSiRnPRnCaFArFYPMgArCaPBCaPBSiRnFYPBCaFArCaSiAl"
+        };
+        String[] args = new String[]
+        {
+            //0
+            "H => HO\n" +
+            "H => OH\n" +
+            "O => HH",
+            //1
+            "Al => ThF\n" +
+            "Al => ThRnFAr\n" +
+            "B => BCa\n" +
+            "B => TiB\n" +
+            "B => TiRnFAr\n" +
+            "Ca => CaCa\n" +
+            "Ca => PB\n" +
+            "Ca => PRnFAr\n" +
+            "Ca => SiRnFYFAr\n" +
+            "Ca => SiRnMgAr\n" +
+            "Ca => SiTh\n" +
+            "F => CaF\n" +
+            "F => PMg\n" +
+            "F => SiAl\n" +
+            "H => CRnAlAr\n" +
+            "H => CRnFYFYFAr\n" +
+            "H => CRnFYMgAr\n" +
+            "H => CRnMgYFAr\n" +
+            "H => HCa\n" +
+            "H => NRnFYFAr\n" +
+            "H => NRnMgAr\n" +
+            "H => NTh\n" +
+            "H => OB\n" +
+            "H => ORnFAr\n" +
+            "Mg => BF\n" +
+            "Mg => TiMg\n" +
+            "N => CRnFAr\n" +
+            "N => HSi\n" +
+            "O => CRnFYFAr\n" +
+            "O => CRnMgAr\n" +
+            "O => HP\n" +
+            "O => NRnFAr\n" +
+            "O => OTi\n" +
+            "P => CaP\n" +
+            "P => PTi\n" +
+            "P => SiRnFAr\n" +
+            "Si => CaSi\n" +
+            "Th => ThCa\n" +
+            "Ti => BP\n" +
+            "Ti => TiTi\n" +
+            "e => HF\n" +
+            "e => NAl\n" +
+            "e => OMg",
+            //2
+            "e => H\n" +
+            "e => O\n" +
+            "H => HO\n" +
+            "H => OH\n" +
+            "O => HH"
+        };
+
+        @Test
+        void part1()
+        {
+            ex.setInput(inputs[0]);
+            ex.setArg(args[0], 0);
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+
+            ex.setInput(inputs[1]);
+            Assertions.assertThat(ex.answer1()).isEqualTo("7");
+
+            ex.setInput(inputs[2]);
+            ex.setArg(args[1], 0);
+            Assertions.assertThat(ex.answer1()).isEqualTo("518");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.setInput(inputs[0]);
+            ex.setArg(args[2], 0);
+            ex.setArg("e", 1);
+            Assertions.assertThat(ex.answer2()).isEqualTo("3");
+
+            ex.setInput(inputs[1]);
+            Assertions.assertThat(ex.answer2()).isEqualTo("6");
+
+            ex.setInput(inputs[2]);
+            ex.setArg(args[1], 0);
+            Assertions.assertThat(ex.answer2()).isEqualTo("0");
         }
     }
 }
