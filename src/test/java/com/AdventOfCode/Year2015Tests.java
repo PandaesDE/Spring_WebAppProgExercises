@@ -1921,7 +1921,7 @@ public class Year2015Tests {
 
             ex.setInput(inputs[2]);
             ex.setArg(args[1], 0);
-            Assertions.assertThat(ex.answer2()).isEqualTo("0");
+            Assertions.assertThat(ex.answer2()).isEqualTo("200");
         }
     }
 }
