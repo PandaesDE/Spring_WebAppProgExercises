@@ -1952,14 +1952,15 @@ public class Year2015Tests {
             Assertions.assertThat(ex.answer1()).isEqualTo("8");
             ex.setInput("150");
             Assertions.assertThat(ex.answer1()).isEqualTo("8");
-            ex.setInput("34000000");
-            Assertions.assertThat(ex.answer1()).isEqualTo("60");
+            ex.setInput("10000");
+            Assertions.assertThat(ex.answer1()).isEqualTo("786240");
         }
 
         @Test
         void part2()
         {
-
+            ex.setInput("34000000");
+            Assertions.assertThat(ex.answer2()).isEqualTo("786240");
         }
     }
 }

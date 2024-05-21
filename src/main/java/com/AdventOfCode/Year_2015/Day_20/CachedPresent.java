@@ -4,15 +4,19 @@ public class CachedPresent {
     private int elfNumber = 0;
     private int totalHouseVisitations = 0;
     private int presents = 0;
+    private final int maxVisitedHousesPerElf;
 
-    public CachedPresent(int elfNumber)
+    public CachedPresent(int elfNumber, int maxVisitedHousesPerElf)
     {
         this.elfNumber = elfNumber;
+        this.maxVisitedHousesPerElf = maxVisitedHousesPerElf;
     }
 
     public int getPresents(int houseNumber, int multiplier)
     {
         int houseVisitations = houseNumber / this.elfNumber;
+
+        if (houseVisitations > maxVisitedHousesPerElf) return 0;
         if (houseVisitations == this.totalHouseVisitations) return this.presents;
 
         if (houseVisitations > this.totalHouseVisitations)
