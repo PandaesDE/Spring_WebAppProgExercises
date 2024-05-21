@@ -19,6 +19,7 @@ import com.AdventOfCode.Year_2015.Day_16.Aunt_Sue;
 import com.AdventOfCode.Year_2015.Day_17.No_Such_Thing_as_Too_Much;
 import com.AdventOfCode.Year_2015.Day_18.Like_a_GIF_For_Your_Yard;
 import com.AdventOfCode.Year_2015.Day_19.Medicine_for_Rudolph;
+import com.AdventOfCode.Year_2015.Day_20.Infinite_Elves_and_Infinite_Houses;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -1922,6 +1923,43 @@ public class Year2015Tests {
             ex.setInput(inputs[2]);
             ex.setArg(args[1], 0);
             Assertions.assertThat(ex.answer2()).isEqualTo("200");
+        }
+    }
+
+    @Nested
+    class day20
+    {
+        AOCExercise ex = new Infinite_Elves_and_Infinite_Houses();
+
+        @Test
+        void part1()
+        {
+            ex.setInput("10");
+            Assertions.assertThat(ex.answer1()).isEqualTo("1");
+            ex.setInput("30");
+            Assertions.assertThat(ex.answer1()).isEqualTo("2");
+            ex.setInput("40");
+            Assertions.assertThat(ex.answer1()).isEqualTo("3");
+            ex.setInput("60");
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+            ex.setInput("70");
+            Assertions.assertThat(ex.answer1()).isEqualTo("4");
+            ex.setInput("80");
+            Assertions.assertThat(ex.answer1()).isEqualTo("6");
+            ex.setInput("120");
+            Assertions.assertThat(ex.answer1()).isEqualTo("6");
+            ex.setInput("130");
+            Assertions.assertThat(ex.answer1()).isEqualTo("8");
+            ex.setInput("150");
+            Assertions.assertThat(ex.answer1()).isEqualTo("8");
+            ex.setInput("34000000");
+            Assertions.assertThat(ex.answer1()).isEqualTo("60");
+        }
+
+        @Test
+        void part2()
+        {
+
         }
     }
 }
