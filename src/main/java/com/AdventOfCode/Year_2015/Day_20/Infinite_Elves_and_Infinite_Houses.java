@@ -3,9 +3,6 @@ package com.AdventOfCode.Year_2015.Day_20;
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-import java.util.HashMap;
-import java.util.TreeMap;
-
 public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
 
     private CachedPresentCalculator calculator;

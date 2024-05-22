@@ -34,7 +34,6 @@ public class CachedPresentCalculator {
         if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 43200) incrementer = 144;
         if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 187200) incrementer = 420;
         if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 292608) incrementer = 1080;
-        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 369024) incrementer = 1800;
 
         while (totalPresents < minPresentsAmount)
         {
