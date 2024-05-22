@@ -7,6 +7,8 @@ public class CachedPresentCalculator {
     private final HashMap<Integer, CachedPresent> cache;
     private int totalPresents = 0;
     private int lowestHouseNumber = 0;
+    private static int MAX_VISITED_HOUSES_PER_ELF = 0;
+
 
     public CachedPresentCalculator()
     {
@@ -20,9 +22,14 @@ public class CachedPresentCalculator {
 
         /* optimization block */
         int incrementer = 1;
-        if (minPresentsAmount > 7 * CachedPresent.getPresentMultiplier()) incrementer = 2;
-        if (minPresentsAmount > 42 * CachedPresent.getPresentMultiplier()) incrementer = 4;
-        if (minPresentsAmount > 600 * CachedPresent.getPresentMultiplier()) incrementer = 6;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 7) incrementer = 2;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 42) incrementer = 4;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 60) incrementer = 6;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 600) incrementer = 12;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 868) incrementer = 24;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 1560) incrementer = 30;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 2016) incrementer = 36;
+        if (minPresentsAmount / CachedPresent.getPresentMultiplier() > 3224) incrementer = 60;
 
         while (totalPresents < minPresentsAmount)
         {
@@ -37,10 +44,11 @@ public class CachedPresentCalculator {
 
     private void calculateAllTotalPresents()
     {
-        /*
-        * */
         for (int house = lowestHouseNumber / 2; house >= 1 ; house--)
         {
+            if (lowestHouseNumber / house > MAX_VISITED_HOUSES_PER_ELF)
+                break;
+
             if (lowestHouseNumber % house != 0)
                 continue;
 
@@ -58,4 +66,8 @@ public class CachedPresentCalculator {
         totalPresents += cache.get(houseNumber).getPresents(houseNumber);
     }
 
+    public static void setMaxVisitedHousesPerElf(int maxVisitedHousesPerElf)
+    {
+        MAX_VISITED_HOUSES_PER_ELF = maxVisitedHousesPerElf;
+    }
 }

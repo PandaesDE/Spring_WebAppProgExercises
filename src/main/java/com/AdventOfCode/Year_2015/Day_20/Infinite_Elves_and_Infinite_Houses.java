@@ -3,6 +3,9 @@ package com.AdventOfCode.Year_2015.Day_20;
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
+import java.util.HashMap;
+import java.util.TreeMap;
+
 public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
 
     private CachedPresentCalculator calculator;
@@ -25,14 +28,16 @@ public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
 
     private void init(int maxVisitedHousesPerElf, int presentMultiplier)
     {
-        CachedPresent.setMaxVisitedHousesPerElf(maxVisitedHousesPerElf);
+        CachedPresentCalculator.setMaxVisitedHousesPerElf(maxVisitedHousesPerElf);
         CachedPresent.setPresentMultiplier(presentMultiplier);
         this.calculator = new CachedPresentCalculator();
     }
 
+    //TODO: if optimize in future, this is helpful
     private void test()
     {
-        int steps = 10000;
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int steps = 100000;
         int max = 0;
         int sum = 0;
         int increment = 1;
@@ -50,10 +55,15 @@ public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
                 increment = i - oldI;
                 oldI = i;
                 max = sum;
+
+                map.put(increment, max);
             }
 
-            System.out.println(i + ") Max: " + max + " | Increment: " + increment);
             sum = 0;
         }
+
+        map.forEach((k,v) -> {
+            System.out.println(0 + ") Max: " + v + " | Increment: " + k);
+        });
     }
 }

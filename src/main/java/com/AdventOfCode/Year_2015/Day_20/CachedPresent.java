@@ -1,13 +1,11 @@
 package com.AdventOfCode.Year_2015.Day_20;
 
 public class CachedPresent {
-    private int elfNumber = 0;
+    private int elfNumber;
     private int totalHouseVisitations = 0;
     private int presents = 0;
 
     private static int PRESENT_MULTIPLIER = 0;
-
-    private static int MAX_VISITED_HOUSES_PER_ELF = 0;
 
     public CachedPresent(int elfNumber)
     {
@@ -18,7 +16,6 @@ public class CachedPresent {
     {
         int houseVisitations = houseNumber / this.elfNumber;
 
-        if (houseVisitations > MAX_VISITED_HOUSES_PER_ELF) return 0;
         if (houseVisitations == this.totalHouseVisitations) return this.presents;
 
         int houseDifference = houseVisitations - this.totalHouseVisitations;
@@ -41,10 +38,5 @@ public class CachedPresent {
     public static void setPresentMultiplier(int presentMultiplier)
     {
         PRESENT_MULTIPLIER = presentMultiplier;
-    }
-
-    public static void setMaxVisitedHousesPerElf(int maxVisitedHousesPerElf)
-    {
-        MAX_VISITED_HOUSES_PER_ELF = maxVisitedHousesPerElf;
     }
 }
