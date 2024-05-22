@@ -32,38 +32,4 @@ public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
         CachedPresent.setPresentMultiplier(presentMultiplier);
         this.calculator = new CachedPresentCalculator();
     }
-
-    //TODO: if optimize in future, this is helpful
-    private void test()
-    {
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        int steps = 100000;
-        int max = 0;
-        int sum = 0;
-        int increment = 1;
-        int oldI = 1;
-
-        for (int i = 1; i < steps; i++)
-        {
-            for (int j = 1; j <= i; j++)
-            {
-                if (i % j == 0) sum += j;
-            }
-
-            if (sum > max)
-            {
-                increment = i - oldI;
-                oldI = i;
-                max = sum;
-
-                map.put(increment, max);
-            }
-
-            sum = 0;
-        }
-
-        map.forEach((k,v) -> {
-            System.out.println(0 + ") Max: " + v + " | Increment: " + k);
-        });
-    }
 }
