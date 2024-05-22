@@ -9,20 +9,51 @@ public class Infinite_Elves_and_Infinite_Houses extends AOCExercise {
 
     @Override
     public String answer1() {
-        init(10, Integer.MAX_VALUE);
+        init(Integer.MAX_VALUE, 10);
+
         int minPresents = Conveniencer.stringToInt(this.input);
         return "" + calculator.getLowestHouseNumber(minPresents);
     }
 
     @Override
     public String answer2() {
-        init(11, 50);
+        init(50, 11);
+
         int minPresents = Conveniencer.stringToInt(this.input);
         return "" + calculator.getLowestHouseNumber(minPresents);
     }
 
-    private void init(int presentMultiplier, int maxVisitedHousesPerElf)
+    private void init(int maxVisitedHousesPerElf, int presentMultiplier)
     {
-        this.calculator = new CachedPresentCalculator(presentMultiplier, maxVisitedHousesPerElf);
+        CachedPresent.setMaxVisitedHousesPerElf(maxVisitedHousesPerElf);
+        CachedPresent.setPresentMultiplier(presentMultiplier);
+        this.calculator = new CachedPresentCalculator();
+    }
+
+    private void test()
+    {
+        int steps = 10000;
+        int max = 0;
+        int sum = 0;
+        int increment = 1;
+        int oldI = 1;
+
+        for (int i = 1; i < steps; i++)
+        {
+            for (int j = 1; j <= i; j++)
+            {
+                if (i % j == 0) sum += j;
+            }
+
+            if (sum > max)
+            {
+                increment = i - oldI;
+                oldI = i;
+                max = sum;
+            }
+
+            System.out.println(i + ") Max: " + max + " | Increment: " + increment);
+            sum = 0;
+        }
     }
 }

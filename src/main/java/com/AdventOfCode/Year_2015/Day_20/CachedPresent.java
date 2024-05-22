@@ -4,42 +4,47 @@ public class CachedPresent {
     private int elfNumber = 0;
     private int totalHouseVisitations = 0;
     private int presents = 0;
-    private final int maxVisitedHousesPerElf;
 
-    public CachedPresent(int elfNumber, int maxVisitedHousesPerElf)
+    private static int PRESENT_MULTIPLIER = 0;
+
+    private static int MAX_VISITED_HOUSES_PER_ELF = 0;
+
+    public CachedPresent(int elfNumber)
     {
         this.elfNumber = elfNumber;
-        this.maxVisitedHousesPerElf = maxVisitedHousesPerElf;
     }
 
-    public int getPresents(int houseNumber, int multiplier)
+    public int getPresents(int houseNumber)
     {
         int houseVisitations = houseNumber / this.elfNumber;
 
-        if (houseVisitations > maxVisitedHousesPerElf) return 0;
+        if (houseVisitations > MAX_VISITED_HOUSES_PER_ELF) return 0;
         if (houseVisitations == this.totalHouseVisitations) return this.presents;
 
-        if (houseVisitations > this.totalHouseVisitations)
-        {
-            int housesToVisit = houseVisitations - this.totalHouseVisitations;
+        int houseDifference = houseVisitations - this.totalHouseVisitations;
+        int houseDifferencePositive = Math.abs(houseDifference);
+        int visit = houseDifference > 0 ? 1 : -1;
 
-            for (int index = 0; index < housesToVisit; index++)
-            {
-                this.presents += (houseVisitations - index) * multiplier * this.elfNumber;
-                this.totalHouseVisitations += 1;
-            }
-        }
-        else
+        for (int index = 0; index < houseDifferencePositive; index++)
         {
-            int housesToUnvisit = this.totalHouseVisitations - houseVisitations;
-
-            for (int index = 0; index < housesToUnvisit; index++)
-            {
-                this.presents -= (houseVisitations - index) * multiplier;
-                this.totalHouseVisitations -= 1;
-            }
+            this.presents += (houseVisitations - index) * PRESENT_MULTIPLIER * this.elfNumber;
+            this.totalHouseVisitations += visit;
         }
 
         return this.presents;
+    }
+
+    public static int getPresentMultiplier() {
+        return PRESENT_MULTIPLIER;
+    }
+
+    public static void setPresentMultiplier(int presentMultiplier)
+    {
+        PRESENT_MULTIPLIER = presentMultiplier;
+    }
+
+    public static void setMaxVisitedHousesPerElf(int maxVisitedHousesPerElf)
+    {
+        MAX_VISITED_HOUSES_PER_ELF = maxVisitedHousesPerElf;
     }
 }
