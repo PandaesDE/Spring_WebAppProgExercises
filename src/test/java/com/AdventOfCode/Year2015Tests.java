@@ -20,6 +20,7 @@ import com.AdventOfCode.Year_2015.Day_17.No_Such_Thing_as_Too_Much;
 import com.AdventOfCode.Year_2015.Day_18.Like_a_GIF_For_Your_Yard;
 import com.AdventOfCode.Year_2015.Day_19.Medicine_for_Rudolph;
 import com.AdventOfCode.Year_2015.Day_20.Infinite_Elves_and_Infinite_Houses;
+import com.AdventOfCode.Year_2015.Day_21.RPG_Simulator_20XX;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -1964,6 +1965,54 @@ public class Year2015Tests {
             ex.setInput("34000000");
             Assertions.assertThat(ex.answer2()).isEqualTo("831600");
         }
+    }
 
+    @Nested
+    class day21
+    {
+        AOCExercise ex = new RPG_Simulator_20XX();
+        String shopInput = "Weapons:    Cost  Damage  Armor\n" +
+                "Dagger        8     4       0\n" +
+                "Shortsword   10     5       0\n" +
+                "Warhammer    25     6       0\n" +
+                "Longsword    40     7       0\n" +
+                "Greataxe     74     8       0\n" +
+                "\n" +
+                "Armor:      Cost  Damage  Armor\n" +
+                "Leather      13     0       1\n" +
+                "Chainmail    31     0       2\n" +
+                "Splintmail   53     0       3\n" +
+                "Bandedmail   75     0       4\n" +
+                "Platemail   102     0       5\n" +
+                "\n" +
+                "Rings:      Cost  Damage  Armor\n" +
+                "Damage +1    25     1       0\n" +
+                "Damage +2    50     2       0\n" +
+                "Damage +3   100     3       0\n" +
+                "Defense +1   20     0       1\n" +
+                "Defense +2   40     0       2\n" +
+                "Defense +3   80     0       3";
+
+        @Test
+        void part1()
+        {
+            ex.setArg(shopInput, 0);
+            ex.setInput(
+                    "Hit Points: 103\n" +
+                    "Damage: 9\n" +
+                    "Armor: 2");
+            Assertions.assertThat(ex.answer1()).isEqualTo("121");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.setArg(shopInput, 0);
+            ex.setInput(
+                    "Hit Points: 103\n" +
+                    "Damage: 9\n" +
+                    "Armor: 2");
+            Assertions.assertThat(ex.answer2()).isEqualTo("201");
+        }
     }
 }
