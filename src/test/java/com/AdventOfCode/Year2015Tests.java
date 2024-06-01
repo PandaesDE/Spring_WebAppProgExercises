@@ -21,6 +21,7 @@ import com.AdventOfCode.Year_2015.Day_18.Like_a_GIF_For_Your_Yard;
 import com.AdventOfCode.Year_2015.Day_19.Medicine_for_Rudolph;
 import com.AdventOfCode.Year_2015.Day_20.Infinite_Elves_and_Infinite_Houses;
 import com.AdventOfCode.Year_2015.Day_21.RPG_Simulator_20XX;
+import com.AdventOfCode.Year_2015.Day_22.Wizard_Simulator_20XX;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -2012,6 +2013,28 @@ public class Year2015Tests {
                     "Hit Points: 103\n" +
                     "Damage: 9\n" +
                     "Armor: 2");
+            Assertions.assertThat(ex.answer2()).isEqualTo("201");
+        }
+    }
+
+    @Nested
+    class day22
+    {
+        AOCExercise ex = new Wizard_Simulator_20XX();
+        String input =  "Hit Points: 51\n" +
+                        "Damage: 9";
+
+        @Test
+        void part1()
+        {
+            ex.setInput(input);
+            Assertions.assertThat(ex.answer1()).isEqualTo("900");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.setInput(input);
             Assertions.assertThat(ex.answer2()).isEqualTo("201");
         }
     }

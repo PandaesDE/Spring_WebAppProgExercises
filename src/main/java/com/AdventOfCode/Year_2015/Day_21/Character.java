@@ -34,7 +34,7 @@ public class Character {
 
     public int hitsUntilDefeated(int damage)
     {
-        if (damage <= defense) return Integer.MAX_VALUE;
+        if (damage <= defense) return hitPoints;
         damage -= defense;
 
         if (hitPoints % damage == 0) return hitPoints / damage;
