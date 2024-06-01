@@ -21,9 +21,9 @@ public class Boss {
         this.poisonDamage = boss.poisonDamage;
     }
 
-    public boolean isAlive()
+    public boolean isDefeated()
     {
-        return hitPoints > 0;
+        return hitPoints <= 0;
     }
 
     public void doEffects()
@@ -54,7 +54,7 @@ public class Boss {
 
     public void attack(Wizard player)
     {
-        if (isAlive())
+        if (!isDefeated())
             player.doDamage(damage);
     }
 

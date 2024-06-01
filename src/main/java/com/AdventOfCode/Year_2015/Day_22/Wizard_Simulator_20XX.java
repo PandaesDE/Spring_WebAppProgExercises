@@ -3,24 +3,26 @@ package com.AdventOfCode.Year_2015.Day_22;
 import com.AdventOfCode.AOCExercise;
 import com.AdventOfCode.Conveniencer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Wizard_Simulator_20XX extends AOCExercise {
     private Boss boss;
     private Wizard player;
-    private int minMana = Integer.MAX_VALUE;
+    private int minMana;
+    private boolean hardMode;
+
     @Override
     public String answer1() {
         init();
+        hardMode = false;
         calculateMinimalManaUsageForWin();
         return "" + minMana;
     }
 
     @Override
     public String answer2() {
-        return null;
+        init();
+        hardMode = true;
+        calculateMinimalManaUsageForWin();
+        return "" + minMana;
     }
 
     private void calculateMinimalManaUsageForWin() {
@@ -35,11 +37,13 @@ public class Wizard_Simulator_20XX extends AOCExercise {
         if (manaSum >= minMana) return;
 
         //player turn
-        //effects
+        if (hardMode) player.doDamage(1);
+        if (player.isDefeated()) return;
+
         player.doEffects();
         boss.doEffects();
 
-        if (!boss.isAlive())
+        if (boss.isDefeated())
         {
             if (manaSum < minMana)
                 minMana = manaSum;
@@ -52,19 +56,11 @@ public class Wizard_Simulator_20XX extends AOCExercise {
         if (attackIndex == 3) manaSum += player.poison(boss);
         if (attackIndex == 4) manaSum += player.recharge();
 
-        if (!boss.isAlive())
-        {
-            if (manaSum < minMana)
-                minMana = manaSum;
-            return;
-        }
-
         //boss turn
-        //effects
         player.doEffects();
         boss.doEffects();
 
-        if (!boss.isAlive())
+        if (boss.isDefeated())
         {
             if (manaSum < minMana)
                 minMana = manaSum;
@@ -72,15 +68,14 @@ public class Wizard_Simulator_20XX extends AOCExercise {
         }
 
         boss.attack(player);
-        if (!player.isAlive())
-        {
-            return;
-        }
+        if (player.isDefeated()) return;
 
         //next turn
         int remainingMana = player.getMana();
-        if (remainingMana >= Wizard.MANA_MAGIC_MISSILE)
-            calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 0, manaSum);
+        if (remainingMana < Wizard.MANA_MAGIC_MISSILE)
+            return;
+
+        calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 0, manaSum);
         if (remainingMana >= Wizard.MANA_DRAIN)
             calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 1, manaSum);
         if (remainingMana >= Wizard.MANA_SHIELD && !player.isShieldActive())
@@ -95,6 +90,7 @@ public class Wizard_Simulator_20XX extends AOCExercise {
 
     private void init()
     {
+        minMana = Integer.MAX_VALUE;
         player = new Wizard(50, 500);
 
         int bossHitPoints = 0;

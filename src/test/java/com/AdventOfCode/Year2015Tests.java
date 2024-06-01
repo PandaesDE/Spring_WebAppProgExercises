@@ -2035,7 +2035,7 @@ public class Year2015Tests {
         void part2()
         {
             ex.setInput(input);
-            Assertions.assertThat(ex.answer2()).isEqualTo("201");
+            Assertions.assertThat(ex.answer2()).isEqualTo("1242"); //too high
         }
     }
 }

@@ -31,6 +31,7 @@ public class Wizard {
     {
         this.hitPoints = wizard.hitPoints;
         this.mana = wizard.mana;
+        this.armor = wizard.armor;
         this.shieldTurnsLeft = wizard.shieldTurnsLeft;
         this.rechargeTurnsLeft = wizard.rechargeTurnsLeft;
     }
@@ -56,9 +57,9 @@ public class Wizard {
         else hitPoints -= damage - armor;
     }
 
-    public boolean isAlive()
+    public boolean isDefeated()
     {
-        return hitPoints > 0;
+        return hitPoints <= 0;
     }
     public boolean isShieldActive()
     {
