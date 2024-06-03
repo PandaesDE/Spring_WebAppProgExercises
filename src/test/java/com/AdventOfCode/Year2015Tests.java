@@ -22,6 +22,7 @@ import com.AdventOfCode.Year_2015.Day_19.Medicine_for_Rudolph;
 import com.AdventOfCode.Year_2015.Day_20.Infinite_Elves_and_Infinite_Houses;
 import com.AdventOfCode.Year_2015.Day_21.RPG_Simulator_20XX;
 import com.AdventOfCode.Year_2015.Day_22.Wizard_Simulator_20XX;
+import com.AdventOfCode.Year_2015.Day_23.Opening_the_Turing_Lock;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -2035,7 +2036,76 @@ public class Year2015Tests {
         void part2()
         {
             ex.setInput(input);
-            Assertions.assertThat(ex.answer2()).isEqualTo("1216"); //too high
+            Assertions.assertThat(ex.answer2()).isEqualTo("1216");
+        }
+    }
+
+    @Nested
+    class day23
+    {
+        AOCExercise ex = new Opening_the_Turing_Lock();
+        String input =
+                "jio a, +22\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "jmp +19\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "tpl a\n" +
+                "tpl a\n" +
+                "jio a, +8\n" +
+                "inc b\n" +
+                "jie a, +4\n" +
+                "tpl a\n" +
+                "inc a\n" +
+                "jmp +2\n" +
+                "hlf a\n" +
+                "jmp -7";
+
+        @Test
+        void part1()
+        {
+            ex.setInput(input);
+            Assertions.assertThat(ex.answer1()).isEqualTo("255");
+        }
+
+        @Test
+        void part2()
+        {
+            ex.setInput(input);
+            Assertions.assertThat(ex.answer2()).isEqualTo("1216");
         }
     }
 }
