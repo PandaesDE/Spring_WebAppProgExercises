@@ -29,7 +29,7 @@ public class Boss {
     public void doEffects()
     {
         //effects
-        if (isPoisonActive())
+        if (isPoisonActive(false))
         {
             hitPoints -= poisonDamage;
             poisonTurnsLeft--;
@@ -41,8 +41,9 @@ public class Boss {
         hitPoints -= damage;
     }
 
-    public boolean isPoisonActive()
+    public boolean isPoisonActive(boolean nextTurn)
     {
+        if (nextTurn) return poisonTurnsLeft > 1;
         return poisonTurnsLeft > 0;
     }
 
@@ -54,8 +55,7 @@ public class Boss {
 
     public void attack(Wizard player)
     {
-        if (!isDefeated())
-            player.doDamage(damage);
+        if (!isDefeated()) player.doDamage(damage);
     }
 
     @Override

@@ -38,7 +38,8 @@ public class Wizard_Simulator_20XX extends AOCExercise {
 
         //player turn
         if (hardMode) player.doDamage(1);
-        if (player.isDefeated()) return;
+        if (player.isDefeated())
+            return;
 
         player.doEffects();
         boss.doEffects();
@@ -78,11 +79,11 @@ public class Wizard_Simulator_20XX extends AOCExercise {
         calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 0, manaSum);
         if (remainingMana >= Wizard.MANA_DRAIN)
             calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 1, manaSum);
-        if (remainingMana >= Wizard.MANA_SHIELD && !player.isShieldActive())
+        if (remainingMana >= Wizard.MANA_SHIELD && !player.isShieldActive(true))
             calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 2, manaSum);
-        if (remainingMana >= Wizard.MANA_POISON && !boss.isPoisonActive())
+        if (remainingMana >= Wizard.MANA_POISON && !boss.isPoisonActive(true))
             calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 3, manaSum);
-        if (remainingMana >= Wizard.MANA_RECHARGE && !player.isRechargeActive())
+        if (remainingMana >= Wizard.MANA_RECHARGE && !player.isRechargeActive(true))
             calculateMinimalManaUsageForWinRecursive((Wizard) player.clone(), (Boss) boss.clone(), 4, manaSum);
     }
 

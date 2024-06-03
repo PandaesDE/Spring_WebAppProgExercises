@@ -1,5 +1,8 @@
 package com.AdventOfCode.Year_2015.Day_22;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Wizard {
     public final static int MANA_MAGIC_MISSILE = 53;
     public final static int MANA_DRAIN = 73;
@@ -39,12 +42,12 @@ public class Wizard {
     public void doEffects()
     {
         armor = 0;
-        if (isShieldActive())
+        if (isShieldActive(false))
         {
             armor = 7;
             shieldTurnsLeft--;
         }
-        if (isRechargeActive())
+        if (isRechargeActive(false))
         {
             mana += 101;
             rechargeTurnsLeft--;
@@ -57,59 +60,39 @@ public class Wizard {
         else hitPoints -= damage - armor;
     }
 
-    public boolean isDefeated()
-    {
-        return hitPoints <= 0;
-    }
-    public boolean isShieldActive()
-    {
-        return shieldTurnsLeft > 0;
-    }
-    public boolean isRechargeActive()
-    {
-        return rechargeTurnsLeft > 0;
-    }
-
     public int magicMissile(Boss boss)
     {
         useMana(MANA_MAGIC_MISSILE);
-        if (hitPoints > 0)
-            boss.doDamage(DAMAGE_MAGIC_MISSILE);
+        boss.doDamage(DAMAGE_MAGIC_MISSILE);
         return MANA_MAGIC_MISSILE;
     }
 
     public int drain(Boss boss)
     {
          useMana(MANA_DRAIN);
-         if (hitPoints > 0)
-         {
-             boss.doDamage(DAMAGE_DRAIN);
-             hitPoints += DAMAGE_DRAIN;
-         }
+         boss.doDamage(DAMAGE_DRAIN);
+         hitPoints += DAMAGE_DRAIN;
          return MANA_DRAIN;
     }
 
     public int shield()
     {
         useMana(MANA_SHIELD);
-        if (hitPoints > 0)
-            shieldTurnsLeft = ROUNDS_SHIELD;
+        shieldTurnsLeft = ROUNDS_SHIELD;
         return MANA_SHIELD;
     }
 
     public int poison(Boss boss)
     {
         useMana(MANA_POISON);
-        if (hitPoints > 0)
-            boss.doPoison(ROUNDS_POISON, DAMAGE_POISON);
+        boss.doPoison(ROUNDS_POISON, DAMAGE_POISON);
         return MANA_POISON;
     }
 
     public int recharge()
     {
         useMana(MANA_RECHARGE);
-        if (hitPoints > 0)
-            rechargeTurnsLeft = ROUNDS_RECHARGE;
+        rechargeTurnsLeft = ROUNDS_RECHARGE;
         return MANA_RECHARGE;
     }
 
@@ -122,6 +105,21 @@ public class Wizard {
         }
     }
 
+    public boolean isDefeated()
+    {
+        return hitPoints <= 0;
+    }
+    public boolean isShieldActive(boolean nextTurn)
+    {
+        if (nextTurn) return shieldTurnsLeft > 1;
+        return shieldTurnsLeft > 0;
+    }
+    public boolean isRechargeActive(boolean nextTurn)
+    {
+        if (nextTurn) return rechargeTurnsLeft > 1;
+        return rechargeTurnsLeft > 0;
+    }
+
     public int getMana()
     {
         return mana;
@@ -130,7 +128,6 @@ public class Wizard {
     private void useMana(int amount)
     {
         if (mana - amount < 0) hitPoints = 0;
-
         mana -= amount;
     }
 }
